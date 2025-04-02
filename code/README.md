@@ -1,7 +1,6 @@
 # Source code used this study
 
-This folder houses all of the code used to generate the results presented in
-the paper.
+This folder houses all of the code used to generate the results.
 
 * Python modules (`.py` files) contain the implementation of the methodology
   and common utilities used in the notebooks.
