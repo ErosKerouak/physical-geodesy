@@ -1,4 +1,4 @@
-name: REPLACE_WITH_REPO_NAME
+name: physical-geodesy
 channels:
   - conda-forge
   - defaults

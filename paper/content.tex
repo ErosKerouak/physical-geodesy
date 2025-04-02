@@ -1,8 +1,69 @@
-\section{Introduction}
+\section{Introdução a Teoria do Potencial}
 
-This is the introduction. Here's a text citation of \citet{OliveiraJr2015}
-and a another version that is sometimes used \citep{OliveiraJr2015}.
-The rest is gibberish text.
+Entre duas massas, $m$ e $m'$, haverá uma força de atração gravitacional $F$, proporcional ao produto dessas massas e inversamente 
+proporcional ao quadrado da distância $l$ que as separa. Considerando que as dimensões das massas sejam pequenas em relação à 
+distância entre elas, a força gravitacional pode ser expressa pela seguinte relação:
+
+\begin{equation}
+  \label{eq_força_gravitacional}
+  F = G\cdot \dfrac{m \cdot m'}{l^2} \hspace{5pt}\text{,}  
+\end{equation}
+
+\noindent
+em que $G$ representa a constante gravitacional:
+
+\begin{equation*}
+  G = 6,674 \times 10^{-11}\ m^3\cdot kg^{-1}\cdot s^{-2}\text{.}  
+\end{equation*}
+
+ 
+Sendo $m$ e $m'$ duas massas pontuais posicionadas, respectivamente, nos pontos $M(\xi,\eta,\zeta)$ e $P(x,y,z)$, define-se o vetor
+$\vec{l}$ como vetor posição relativa do ponto $P$ em relação ao ponto $M$, dado por:
+
+\begin{equation}
+  \label{eq_vetor_posicao}
+  \vec{l} = (x - \xi)\hat{e}_x + (y - \eta)\hat{e}_y + (z - \zeta)\hat{e}_z \text{,}
+\end{equation}
+
+\noindent
+cujo módulo $l$ é obtido pela expressão:
+
+\begin{equation}
+  \label{eq_modulo_v_p}
+  l = \sqrt{(x - \xi)^2 + (y - \eta)^2 + (z - \zeta)^2} \text{.}
+\end{equation}
+
+\noindent
+Os termos $\hat{e}_x$, $\hat{e}_y$ e $\hat{e}_z$ representam os vetores unitários nas direções dos respectivos eixos do sistema 
+de coordenadas cartesianas. 
+
+A força de atração gravitacional exercida pela massa $m$ sobre a massa $m'$ é expressa, em forma vetorial, por $\vec{F}$, dada 
+pela relação:
+
+\begin{equation}
+  \label{eq_força_gravitacional_v}
+  \vec{F} = -G \frac{m \cdot m'}{l^2} \hat{e} = -G \frac{m \cdot m'}{l^3}\vec{l}\text{,}
+\end{equation}
+
+\noindent
+onde $\hat{e} = \frac{\vec{l}}{l}$ representa o vetor unitário orientado segundo a direção de $\vec{l}$. O sinal negativo indica 
+que $\vec{F}$ possui direção oposta à de $\vec{l}$, apontando da massa atraída ($m'$) para a massa atrativa ($m$). Devido ao 
+caráter recíproco da interação gravitacional, a força exercida pela massa $m'$ sobre a massa $m$ é de mesmo módulo que $\vec{F}$, 
+porém de direção oposta.
+
+Para evitar possíveis ambiguidades, podemos definir uma das partículas como atraída, atribuindo-lhe uma massa unitária, 
+enquanto a outra será a partícula atrativa. Vamos então considerar que a partícula $m'$ seja a 
+partícula atraída, com massa unitária, ou seja, $m' = 1$, enquanto a partícula $m$ será a partícula atrativa, com 
+massa $m$. Quando a massa atraida é um ponto material de massa unitaria $m'=1$, (ref{eq_força_gravitacional_v}) torna-se:
+
+\begin{equation}
+  \label{eq_f_g_m_unitaria}
+  \vec{F} = -G \dfrac{m}{l^3}\vec{l}
+\end{equation}
+
+\noindent
+
+
 
 \lipsum[1-6]
 
