@@ -1,138 +1,29 @@
-\section{Introdução a Teoria do Potencial}
+\section{Por que a força de atração gravitacional $\vec{F}$ é considerada uma quantidade dinâmica?}
 
-Entre duas massas, $m$ e $m'$, haverá uma força de atração gravitacional $F$, proporcional ao produto dessas massas e inversamente 
-proporcional ao quadrado da distância $l$ que as separa. Considerando que as dimensões das massas sejam pequenas em relação à 
-distância entre elas, a força gravitacional pode ser expressa pela seguinte relação:
 
-\begin{equation}
-  \label{eq_força_gravitacional}
-  F = G\cdot \dfrac{m \cdot m'}{l^2} \hspace{5pt}\text{,}  
-\end{equation}
-
-\noindent
-em que $G$ representa a constante gravitacional:
+A força de atração gravitacional \(\vec{F}\) é considerada uma quantidade dinâmica porque representa uma força específica, isto é, uma força por unidade de massa, ao invés de uma aceleração propriamente dita \citep{sneeuw2006physical}. Enquanto a aceleração é classificada como uma grandeza cinemática, que descreve apenas a mudança na velocidade de um corpo ao longo do tempo, a força específica gravitacional constitui uma grandeza dinâmica, sendo intrinsecamente associada às causas das mudanças de movimento, conforme definido pela Segunda Lei de Newton:
 
 \begin{equation*}
-  G = 6,674 \times 10^{-11}\ m^3\cdot kg^{-1}\cdot s^{-2}\text{.}  
+  \label{eq_dinamica}
+  \vec{F} = m \vec{a} \text{.}  
 \end{equation*}
 
- 
-Sendo $m$ e $m'$ duas massas pontuais posicionadas, respectivamente, nos pontos $M(\xi,\eta,\zeta)$ e $P(x,y,z)$, define-se o vetor
-$\vec{l}$ como vetor posição relativa do ponto $P$ em relação ao ponto $M$, dado por:
+\noindent
+Assim, o vetor força gravitacional específico (\(\vec{a}\)), definido matematicamente por:
 
-\begin{equation}
-  \label{eq_vetor_posicao}
-  \vec{l} = (x - \xi)\hat{e}_x + (y - \eta)\hat{e}_y + (z - \zeta)\hat{e}_z \text{,}
-\end{equation}
+\begin{equation*}
+  \label{eq_específico}
+  \vec{a} = \frac{\vec{F}}{m} \text{,}  
+\end{equation*}
 
 \noindent
-cujo módulo $l$ é obtido pela expressão:
+possui unidades de aceleração (\(m/s_2\)), mas não representa diretamente uma aceleração do corpo, já que a aceleração real sofrida por um corpo depende da combinação de todas as forças atuantes sobre ele, não apenas da gravidade. Em resumo, a natureza dinâmica da força gravitacional decorre do fato de ser uma força específica, determinada pela interação das massas segundo a lei da gravitação universal de Newton:
 
-\begin{equation}
-  \label{eq_modulo_v_p}
-  l = \sqrt{(x - \xi)^2 + (y - \eta)^2 + (z - \zeta)^2} \text{.}
-\end{equation}
 
-\noindent
-Os termos $\hat{e}_x$, $\hat{e}_y$ e $\hat{e}_z$ representam os vetores unitários nas direções dos respectivos eixos do sistema 
-de coordenadas cartesianas. 
-
-A força de atração gravitacional exercida pela massa $m$ sobre a massa $m'$ é expressa, em forma vetorial, por $\vec{F}$, dada 
-pela relação:
-
-\begin{equation}
-  \label{eq_força_gravitacional_v}
-  \vec{F} = -G \frac{m \cdot m'}{l^2} \hat{e} = -G \frac{m \cdot m'}{l^3}\vec{l}\text{,}
-\end{equation}
+\begin{equation*}
+  \label{eq_gravitação}
+  \vec{F} = -\,G \frac{m_1 m_2}{r^3} \vec{r} \text{,}  
+\end{equation*}
 
 \noindent
-onde $\hat{e} = \frac{\vec{l}}{l}$ representa o vetor unitário orientado segundo a direção de $\vec{l}$. O sinal negativo indica 
-que $\vec{F}$ possui direção oposta à de $\vec{l}$, apontando da massa atraída ($m'$) para a massa atrativa ($m$). Devido ao 
-caráter recíproco da interação gravitacional, a força exercida pela massa $m'$ sobre a massa $m$ é de mesmo módulo que $\vec{F}$, 
-porém de direção oposta.
-
-Para evitar possíveis ambiguidades, podemos definir uma das partículas como atraída, atribuindo-lhe uma massa unitária, 
-enquanto a outra será a partícula atrativa. Vamos então considerar que a partícula $m'$ seja a 
-partícula atraída, com massa unitária, ou seja, $m' = 1$, enquanto a partícula $m$ será a partícula atrativa, com 
-massa $m$. Quando a massa atraida é um ponto material de massa unitaria $m'=1$, (ref{eq_força_gravitacional_v}) torna-se:
-
-\begin{equation}
-  \label{eq_f_g_m_unitaria}
-  \vec{F} = -G \dfrac{m}{l^3}\vec{l}
-\end{equation}
-
-\noindent
-
-
-
-\lipsum[1-6]
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Methodology}
-
-This is Euler's homogeneity equation
-
-\begin{equation}
-  \label{eq_euler_homogeneity}
-  (x - x_c)\partial_x f + (y - y_c)\partial_y f + (z - z_c)\partial_z f
-  = (b - f)\eta
-  \ ,
-\end{equation}
-
-\noindent
-in which $(x_c, y_c, z_c)$ are the coordinates of the magnetic field source,
-$b$ is the base level representing a constant shift in the signal, and $\eta$
-is the structural index corresponding to the nature of the source. You can
-reference the equation in the text like this:
-Equation~\ref{eq_euler_homogeneity}.
-
-\lipsum[10-16]
-
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Results}
-
-
-%\begin{figure}[tb]
-%\centering
-%\includegraphics[width=1\linewidth]{figures/simple-synthetic-data.png}
-%\caption{
-  %\lipsum[1]
-%}
-%\label{fig_synthetic_simple_data}
-%\end{figure}
-
-\lipsum[5-10]
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Conclusion}
-
-\lipsum[1-5]
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Open research}
-
-The Python source code used to produce all results and figures presented here
-is available at \url{https://github.com/\GitHubRepository} and
-\url{https://doi.org/\ArchiveDOI} under the MIT open-source license.
-
-Here we should cite all of the main software used, like Jupyter, numpy, scipy,
-matplotlib, Fatiando, etc.
-
-Cite any data sources as well.
-
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Acknowledgements}
-
-We are indebted to the developers and maintainers of the open-source software
-without which this work would not have been possible.
-Acknowledge any non-author contributors to this study.
-Statement about funding.
-
-% Thank the editors and reviewers after review.
+em que \(G\) é a constante gravitacional, \(m_1\) e \(m_2\) são as massas interagentes, e \(\vec{r}\) é o vetor que conecta as duas massas, definindo a direção da força gravitacional \citep{sneeuw2006physical}.
