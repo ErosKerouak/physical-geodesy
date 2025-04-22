@@ -91,140 +91,40 @@ V(\vec{r}) = G \iiint \frac{\rho(\vec{r}')}{|\vec{r} - \vec{r}'|} \, dV' \text{.
 
 \section{Por que fora das massas atrativas o potencial satisfaz a Equação de Laplace e dentro delas a Equação de Poisson? Demonstrar.}
 
-
-Seja uma distribuição contínua de massa com densidade \( \rho(\xi, \eta, \zeta) \) definida em um volume \( v \subset \mathbb{R}^3 \). O potencial gravitacional gerado por essa distribuição, no ponto de observação \( (x, y, z) \), é dado por:
-
-\[
-V(x, y, z) = G \iiint_v \frac{\rho(\xi, \eta, \zeta)}{\sqrt{(x - \xi)^2 + (y - \eta)^2 + (z - \zeta)^2}} \, d\xi \, d\eta \, d\zeta \text{,}
-\]
-
-\noindent
-onde \( G \) é a constante gravitacional, e a quantidade
+A distinção entre as regiões onde o potencial gravitacional satisfaz a equação de Laplace e aquelas onde ele satisfaz a equação de Poisson fundamenta-se na distribuição da massa no espaço. Considerando uma distribuição contínua de massa, a forma matemática do potencial gravitacional newtoniano \( V(\mathbf{r}) \) em um ponto de observação \( \mathbf{r} \in \mathbb{R}^3 \), gerado por uma densidade de massa \( \rho(\mathbf{r}') \) definida em um volume \( v \subset \mathbb{R}^3 \), é dada por:
 
 \[
-l = \sqrt{(x - \xi)^2 + (y - \eta)^2 + (z - \zeta)^2} \text{,}
+V(\mathbf{r}) = G \iiint_{v} \frac{\rho(\mathbf{r}')}{|\mathbf{r} - \mathbf{r}'|} \, d^3\mathbf{r}' \text{,}
 \]
 
-\noindent
-representa a distância entre o ponto de observação \( (x, y, z) \) e o ponto fonte \( (\xi, \eta, \zeta) \).
+\noindent onde \( G \) é a constante da gravitação universal e \( |\mathbf{r} - \mathbf{r}'| \) representa a distância euclidiana entre o ponto de observação \( \mathbf{r} \) e o ponto fonte \( \mathbf{r}' \).
 
-Vamos agora aplicar o operador Laplaciano ao potencial \( V(x, y, z) \), o que exige o cálculo das três derivadas segundas parciais:
+Para investigar as propriedades diferenciais do potencial, aplica-se o operador laplaciano ao termo fundamental \( \frac{1}{|\mathbf{r} - \mathbf{r}'|} \), cuja identidade clássica na teoria do potencial é:
 
 \[
-\Delta V = 
-\frac{\partial^2 V}{\partial x^2} +
-\frac{\partial^2 V}{\partial y^2} +
-\frac{\partial^2 V}{\partial z^2} \text{.}
+\nabla^2 \left( \frac{1}{|\mathbf{r} - \mathbf{r}'|} \right) = -4\pi \delta(\mathbf{r} - \mathbf{r}') \text{,}
 \]
 
-
-
-Para \( (x, y, z) \) fora das massas, ou seja, com \( (x, y, z) \ne (\xi, \eta, \zeta) \), é permitido trocar a ordem entre derivação e integração.
-
-
-
-\textbf{1. Derivada em relação a \( x \):}
-\[
-\frac{\partial V}{\partial x}
-= -G \iiint_v \rho(\xi, \eta, \zeta) \cdot \frac{x - \xi}{l^3} \, d\xi \, d\eta \, d\zeta
-\]
+\noindent onde \( \delta \) é a função delta de Dirac. Aplicando o operador laplaciano ao potencial, obtém-se:
 
 \[
-\frac{\partial^2 V}{\partial x^2}
-= -G \iiint_v \rho(\xi, \eta, \zeta) \cdot \left( \frac{-l^2 + 3(x - \xi)^2}{l^5} \right) \, d\xi \, d\eta \, d\zeta
+\nabla^2 V(\mathbf{r}) = G \iiint_{v} \rho(\mathbf{r}') \nabla^2 \left( \frac{1}{|\mathbf{r} - \mathbf{r}'|} \right) \, d^3\mathbf{r}' = -4\pi G \rho(\mathbf{r}) \text{.}
 \]
 
-\textbf{2. Derivada em relação a \( y \):}
-\[
-\frac{\partial V}{\partial y}
-= -G \iiint_v \rho(\xi, \eta, \zeta) \cdot \frac{y - \eta}{l^3} \, d\xi \, d\eta \, d\zeta
-\]
+Esse resultado define a \textbf{equação de Poisson}, válida nos pontos do espaço onde a densidade de massa \( \rho(\mathbf{r}) \) é diferente de zero, ou seja, \textit{no interior das massas atrativas}:
 
 \[
-\frac{\partial^2 V}{\partial y^2}
-= -G \iiint_v \rho(\xi, \eta, \zeta) \cdot \left( \frac{-l^2 + 3(y - \eta)^2}{l^5} \right) \, d\xi \, d\eta \, d\zeta
+\nabla^2 V(\mathbf{r}) = -4\pi G \rho(\mathbf{r}) \text{.}
 \]
 
-\textbf{3. Derivada em relação a \( z \):}
-\[
-\frac{\partial V}{\partial z}
-= -G \iiint_v \rho(\xi, \eta, \zeta) \cdot \frac{z - \zeta}{l^3} \, d\xi \, d\eta \, d\zeta
-\]
+No entanto, \textit{fora das massas}, isto é, nos pontos do espaço onde \( \rho(\mathbf{r}) = 0 \), a equação acima reduz-se à chamada \textbf{equação de Laplace}:
 
 \[
-\frac{\partial^2 V}{\partial z^2}
-= -G \iiint_v \rho(\xi, \eta, \zeta) \cdot \left( \frac{-l^2 + 3(z - \zeta)^2}{l^5} \right) \, d\xi \, d\eta \, d\zeta
+\nabla^2 V(\mathbf{r}) = 0 \text{.}
 \]
 
-\noindent
-Somando os três termos:
+Dessa forma, o potencial gravitacional \( V \) é uma função \textit{harmônica} fora das massas e uma função \textit{superharmônica} dentro delas. Esse resultado é fundamental na geodésia física e na modelagem do campo de gravidade terrestre, sendo extensivamente utilizado na formulação de problemas de contorno e na determinação do campo externo da Terra por meio da teoria do potencial.
 
-\[
-\Delta V(x, y, z) =
--G \iiint_v \rho(\xi, \eta, \zeta)
-\cdot \left[
-\frac{-l^2 + 3(x - \xi)^2}{l^5} +
-\frac{-l^2 + 3(y - \eta)^2}{l^5} +
-\frac{-l^2 + 3(z - \zeta)^2}{l^5}
-\right]
-\, d\xi \, d\eta \, d\zeta
-\]
-
-\noindent
-Da soma dos numeradores, sabemos que:
-
-\[
-(x - \xi)^2 + (y - \eta)^2 + (z - \zeta)^2 = l^2
-\Rightarrow -3l^2 + 3l^2 = 0
-\]
-
-\noindent
-Conclusão, fora da massa:
-
-\[
-\Delta V(x, y, z) = 0
-\]
-
-o que corresponde à \textbf{equação de Laplace}:
-
-\[
-\boxed{\Delta V(x, y, z) = 0}
-\]
-
-No interior das massas, o termo \( 1/l \) torna-se divergente no ponto de singularidade \( (x, y, z) = (\xi, \eta, \zeta) \), de modo que o raciocínio adotado anteriormente deixa de ser válido. A terceira identidade de Green, para um ponto $(x, y, z)$ situado no interior de uma superfície fechada $S$, afirma que:
-
-\begin{equation}
-V(x, y, z) = \frac{1}{4\pi} \left[ \iint_S \left( \frac{1}{l} \frac{\partial V}{\partial n} - V \frac{\partial}{\partial n} \left( \frac{1}{l} \right) \right) dS - \iiint_{v_i} \frac{1}{l} \Delta V \, d\xi \, d\eta \, d\zeta \right]
-\end{equation}
-
-\noindent
-Supondo que $V$ seja o potencial gravitacional definido anteriormente, podemos igualar as duas expressões para $V(x, y, z)$:
-
-\begin{equation}
-G \iiint_{v_i} \frac{\rho(\xi, \eta, \zeta)}{l} \, d\xi \, d\eta \, d\zeta =
-\frac{1}{4\pi} \left[ \iint_S \left( \frac{1}{l} \frac{\partial V}{\partial n} - V \frac{\partial}{\partial n} \left( \frac{1}{l} \right) \right) dS - \iiint_{v_i} \frac{1}{l} \Delta V \, d\xi \, d\eta \, d\zeta \right]
-\end{equation}
-
-\noindent
-Multiplicando ambos os lados por $4\pi$ e reorganizando os termos:
-
-\begin{equation}
-\iiint_{v_i} \left( \frac{1}{l} \Delta V + 4\pi G \frac{\rho}{l} \right) d\xi \, d\eta \, d\zeta = \iint_S \left( \frac{1}{l} \frac{\partial V}{\partial n} - V \frac{\partial}{\partial n} \left( \frac{1}{l} \right) \right) dS
-\end{equation}
-
-\noindent
-Essa igualdade deve valer para qualquer superfície fechada $S$ envolvendo o ponto $(x, y, z)$. Isso só é possível se o integrando do volume se anular ponto a ponto, isto é:
-
-\begin{equation}
-\frac{1}{l} \left( \Delta V + 4\pi G \rho \right) = 0 \quad \Rightarrow \quad \boxed{\Delta V(x, y, z) = -4\pi G \rho(x, y, z)}
-\end{equation}
-
-\noindent
-Assim, obtemos a \textbf{equaçãao de Poisson}.
-
-\[
-\boxed{\Delta V = -4\pi G \rho(x, y, z)}
-\]
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -388,7 +288,8 @@ Os harmônicos esféricos de superfície, também chamados de funções de Lapla
 Y_\ell^m(\theta, \lambda) = P_\ell^m(\cos\theta) \, e^{im\lambda} \text{,}
 \]
 
-onde \( \theta \) é a colatitude (ou polar distance), \( \lambda \) é a longitude, \( P_\ell^m \) são os polinômios associados de Legendre, \( \ell \) é o grau e \( m \) é a ordem. Essas funções são ortogonais sobre a esfera e constituem uma base funcional adequada para representar funções escalares bidimensionais, como anomalias gravimétricas medidas ao nível do mar ou da superfície terrestre. No contexto da geodesia física, os harmônicos de superfície são particularmente úteis para decompor distribuições espaciais de dados observados em termos de suas frequências angulares.
+\noindent
+onde \( \theta \) é a colatitude, \( \lambda \) é a longitude, \( P_\ell^m \) são os polinômios associados de Legendre, \( \ell \) é o grau e \( m \) é a ordem. Essas funções são ortogonais sobre a esfera e constituem uma base funcional adequada para representar funções escalares bidimensionais, como anomalias gravimétricas medidas ao nível do mar ou da superfície terrestre. 
 
 Por outro lado, os harmônicos esféricos sólidos constituem soluções da equação de Laplace tridimensional em coordenadas esféricas. Essas soluções dependem explicitamente da variável radial \( r \), além dos ângulos \( \theta \) e \( \lambda \), e podem ser expressas na forma geral
 
@@ -396,12 +297,14 @@ Por outro lado, os harmônicos esféricos sólidos constituem soluções da equa
 V(r, \theta, \lambda) = \sum_{\ell=0}^\infty \sum_{m=0}^\ell \left( A_{\ell m} r^\ell + \frac{B_{\ell m}}{r^{\ell+1}} \right) P_\ell^m(\cos\theta) \cos(m\lambda) + \left( C_{\ell m} r^\ell + \frac{D_{\ell m}}{r^{\ell+1}} \right) P_\ell^m(\cos\theta) \sin(m\lambda) \text{.}
 \]
 
+\noindent
 Essa classe de funções inclui dois tipos fundamentais: os harmônicos regulares, proporcionais a \( r^\ell \), que são finitos na origem e geralmente usados para representar campos no interior de uma esfera; e os harmônicos singulares, proporcionais a \( r^{-(\ell+1)} \), que são finitos no infinito e usados para representar potenciais no exterior de distribuições de massa. No caso do campo gravitacional da Terra, que é harmônico fora das massas, os termos \( r^{-(\ell+1)} \) são empregados para construir a representação externa do potencial. Assim, o potencial gravitacional externo da Terra é frequentemente expresso como:
 
 \[
 V(r, \theta, \lambda) = \frac{GM}{r} \left[ 1 + \sum_{\ell=1}^\infty \sum_{m=0}^\ell \left( \bar{C}_{\ell m} \cos m\lambda + \bar{S}_{\ell m} \sin m\lambda \right) \bar{P}_{\ell m}(\cos\theta) \left( \frac{R}{r} \right)^\ell \right] \text{,}
 \]
 
+\noindent
 onde \( R \) é o raio de referência (geralmente o raio médio da Terra), e os coeficientes \( \bar{C}_{\ell m} \), \( \bar{S}_{\ell m} \) codificam a distribuição global da massa.
 
 A distinção essencial, portanto, é que os harmônicos de superfície são bidimensionais e restritos a uma esfera, sendo apropriados para modelar fenômenos definidos apenas sobre a superfície, enquanto os harmônicos sólidos são tridimensionais e adequados para representar campos escalares que variam com a distância ao centro, como o potencial gravitacional ou magnético. Na prática, os harmônicos de superfície constituem a parte angular da solução dos harmônicos sólidos, mas a generalização radial é indispensável quando se busca modelar o campo no espaço, fora ou dentro de uma esfera de referência.
@@ -410,20 +313,20 @@ A distinção essencial, portanto, é que os harmônicos de superfície são bid
 
 \section{Qual é a importância da Integral de Poisson no estudo do potencial gravitacional $V$ e seus diferentes problemas de valor de contorno? Explicar detalhadamente.}
 
-Trata-se de uma solução explícita da equação de Laplace no exterior de uma esfera, quando os valores do potencial são conhecidos na superfície dessa esfera. Sua importância reside tanto em seu valor teórico — como demonstração da existência e unicidade da solução — quanto em sua aplicação prática à geodesia física, onde o campo gravitacional externo da Terra deve ser determinado com base em observações sobre a superfície.
-
-Considere uma função escalar \( V \) que representa o potencial gravitacional gerado por uma distribuição de massa localizada no interior de uma esfera de raio \( R \). Supondo que \( V \) seja harmônico no exterior da esfera, ou seja, satisfaça a equação de Laplace
+Trata-se de uma solução explícita da equação de Laplace no exterior de uma esfera, quando os valores do potencial são conhecidos na superfície dessa esfera. Considere uma função escalar \( V \) que representa o potencial gravitacional gerado por uma distribuição de massa localizada no interior de uma esfera de raio \( R \). Supondo que \( V \) seja harmônico no exterior da esfera, ou seja, satisfaça a equação de Laplace
 
 \[
 \nabla^2 V = 0 \quad \text{para } r > R \text{,}
 \]
 
+\noindent
 e que seus valores sejam conhecidos sobre a superfície \( r = R \), o problema de contorno de Dirichlet consiste em determinar \( V(r, \theta, \lambda) \) no domínio externo \( r > R \). A Integral de Poisson fornece a solução analítica exata para esse problema:
 
 \[
 V(r, \theta, \lambda) = \frac{1}{4\pi} \int_0^{2\pi} \int_0^\pi \frac{R^2 - r^2}{(R^2 + r^2 - 2Rr \cos \psi)^{3/2}} \, f(\theta', \lambda') \sin \theta' \, d\theta' d\lambda' \text{,}
 \]
 
+\noindent
 onde \( f(\theta', \lambda') \) é o valor conhecido do potencial na superfície esférica de raio \( R \), e \( \psi \) é o ângulo entre os vetores unitários que apontam para os pontos \( (\theta, \lambda) \) e \( (\theta', \lambda') \). A integral é avaliada sobre toda a superfície esférica.
 
 A derivação da fórmula de Poisson tem como ponto de partida a terceira identidade de Green, que expressa a solução do potencial harmônico no domínio externo como uma combinação dos valores do potencial e de suas derivadas normais ao longo da fronteira. Especificamente, se \( V \) é harmônico em um domínio e \( S \) é a fronteira da região, então:
@@ -432,17 +335,18 @@ A derivação da fórmula de Poisson tem como ponto de partida a terceira identi
 V(P) = \frac{1}{4\pi} \int_S \left( \frac{1}{l} \frac{\partial V}{\partial n} - V \frac{\partial}{\partial n} \left( \frac{1}{l} \right) \right) \, dS \text{,}
 \]
 
+\noindent
 com \( l \) representando a distância entre o ponto de avaliação \( P \) e o ponto de integração sobre a superfície \( S \), e \( \frac{\partial}{\partial n} \) denotando a derivada normal externa. Quando os valores da derivada normal são desconhecidos (caso típico do problema de Dirichlet), a segunda parcela do integrando é suficiente para determinar a solução, e a integral de Poisson resulta diretamente desse termo.
 
-A importância da Integral de Poisson se manifesta, portanto, em três aspectos principais. Primeiramente, ela oferece uma solução explícita e construtiva para o problema de Dirichlet em regiões esféricas, garantindo que, para cada função contínua definida sobre a fronteira da esfera, existe uma função harmônica que coincide com ela na fronteira e que é única no domínio externo. Em segundo lugar, sua forma integral revela que a solução em qualquer ponto do espaço é uma média ponderada dos valores na fronteira, o que fornece uma interpretação física e geométrica do comportamento do potencial gravitacional: ele é suavizado no interior do domínio em relação aos valores de contorno, sem oscilações abruptas. Em terceiro lugar, a Integral de Poisson estabelece a base conceitual para métodos numéricos e aproximados utilizados em geodesia, como as formulações baseadas em kernels harmônicos, interpolação espectral e continuação harmônica.
+%A importância da Integral de Poisson se manifesta, portanto, em três aspectos principais. Primeiramente, ela oferece uma solução explícita e construtiva para o problema de Dirichlet em regiões esféricas, garantindo que, para cada função contínua definida sobre a fronteira da esfera, existe uma função harmônica que coincide com ela na fronteira e que é única no domínio externo. Em segundo lugar, sua forma integral revela que a solução em qualquer ponto do espaço é uma média ponderada dos valores na fronteira, o que fornece uma interpretação física e geométrica do comportamento do potencial gravitacional: ele é suavizado no interior do domínio em relação aos valores de contorno, sem oscilações abruptas. Em terceiro lugar, a Integral de Poisson estabelece a base conceitual para métodos numéricos e aproximados utilizados em geodesia, como as formulações baseadas em kernels harmônicos, interpolação espectral e continuação harmônica.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Por que a Força de Coriolis não é considerada parte do vetor gravidade $\vec{g}$? Explicar detalhadamente.}
 
-A força de Coriolis, embora atue sobre corpos em movimento em referenciais não inerciais como a Terra, não é considerada parte do vetor gravidade \( \vec{g} \) porque sua natureza física e sua forma de atuação são fundamentalmente distintas das componentes que compõem o campo gravitacional efetivo medido por instrumentos geodésicos.
+A força de Coriolis, embora atue sobre corpos em movimento em referenciais não inerciais como a Terra, não é considerada parte do vetor gravidade \( \vec{g} \) porque sua natureza física e sua forma de atuação são fundamentalmente distintas das componentes que compõem o campo gravitacional.
 
-O vetor gravidade \( \vec{g} \), tal como definido na geodesia física, representa a aceleração total exercida sobre uma massa de prova em repouso com relação à superfície terrestre. Este vetor é composto por duas contribuições principais: a atração gravitacional newtoniana \( \vec{F} \), associada à massa da Terra, e a aceleração centrífuga \( \vec{z} \), resultante da rotação da Terra em torno de seu eixo. Matematicamente, essa definição é expressa por:
+O vetor gravidade \( \vec{g} \) representa a aceleração total exercida sobre uma massa de prova em repouso com relação à superfície terrestre. Este vetor é composto por duas contribuições principais: a atração gravitacional newtoniana \( \vec{F} \), associada à massa da Terra, e a aceleração centrífuga \( \vec{z} \), resultante da rotação da Terra em torno de seu eixo. Matematicamente, essa definição é expressa por:
 
 \[
 \vec{g} = \vec{F} + \vec{z} \text{.}
@@ -454,6 +358,7 @@ A atração gravitacional \( \vec{F} \) é uma força de origem física real, as
 U = V + \Phi \text{,}
 \]
 
+\noindent
 em que \( V \) é o potencial gravitacional. O vetor gravidade então é o gradiente negativo desse potencial total:
 
 \[
@@ -466,9 +371,8 @@ Por outro lado, a força de Coriolis não se manifesta sobre corpos em repouso, 
 \vec{F}_\text{Coriolis} = -2m (\vec{\omega} \times \vec{v}) \text{.}
 \]
 
+\noindent
 Essa força é perpendicular tanto ao vetor velocidade quanto ao eixo de rotação da Terra, e sua direção depende do sentido do movimento do corpo. Como ela não atua sobre corpos em repouso, não contribui para o peso aparente medido por instrumentos como gravímetros, que quantificam a força por unidade de massa em repouso com relação à superfície. Além disso, a força de Coriolis não pode ser representada como o gradiente de um potencial escalar, ao contrário da gravidade e da aceleração centrífuga, o que impede sua inclusão formal no potencial total da gravidade.
-
-Do ponto de vista geodésico, essa distinção é essencial: o campo de gravidade \( \vec{g} \) é definido de modo a descrever o campo conservativo que atua sobre massas estacionárias. A força de Coriolis, por ser uma força de caráter não conservativo, dependente da velocidade e da trajetória do corpo, é tratada separadamente nos problemas de dinâmica e não nas equações do potencial ou nas superfícies equipotenciais da Terra.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -480,6 +384,7 @@ O potencial de gravidade terrestre, denotado por \( W \) e comumente chamado de 
 W = V + \Phi \text{.}
 \]
 
+\noindent
 Para compreender por que \( W \) não é, em geral, uma função harmônica, é necessário examinar as propriedades de cada termo.
 
 O potencial gravitacional \( V \) satisfaz a equação de Poisson no interior da Terra (regiões com massa), pois a densidade de massa \( \rho \) não é nula. Sua forma diferencial é:
@@ -488,12 +393,13 @@ O potencial gravitacional \( V \) satisfaz a equação de Poisson no interior da
 \nabla^2 V = -4\pi G \rho \text{.}
 \]
 
-Em contrapartida, em regiões do espaço onde não há massa — como o exterior da Terra — \( \rho = 0 \), e o potencial gravitacional passa a satisfazer a equação de Laplace:
+Em contrapartida, em regiões do espaço onde não há massa, como o exterior da Terra, \( \rho = 0 \), e o potencial gravitacional passa a satisfazer a equação de Laplace:
 
 \[
 \nabla^2 V = 0 \quad \text{(em regiões livres de massa).}
 \]
 
+\noindent
 Logo, o potencial gravitacional é harmônico apenas fora das massas. No interior da Terra, ele não é harmônico, mas sim uma solução da equação de Poisson, o que implica que seu Laplaciano é proporcional à densidade de massa local.
 
 O potencial centrífugo \( \Phi \), por sua vez, tem a forma:
@@ -502,6 +408,7 @@ O potencial centrífugo \( \Phi \), por sua vez, tem a forma:
 \Phi(\mathbf{r}) = -\frac{1}{2} \omega^2 r_\perp^2 = -\frac{1}{2} \omega^2 (x^2 + y^2) \text{,}
 \]
 
+\noindent
 onde \( \omega \) é a velocidade angular de rotação da Terra, e \( r_\perp \) é a distância do ponto ao eixo de rotação. Trata-se de uma função não harmônica, uma vez que seu Laplaciano é constante:
 
 \[
@@ -514,86 +421,62 @@ Dessa forma, a soma \( W = V + \Phi \) não satisfaz a equação de Laplace nem 
 \nabla^2 W = \nabla^2 V + \nabla^2 \Phi = 0 - 4\omega^2 = -4\omega^2 \neq 0 \text{.}
 \]
 
+\noindent
 Portanto, o geopotencial \( W \) não é uma função harmônica, nem mesmo fora das massas, devido à contribuição do potencial centrífugo.
-
-Essa distinção é conceitualmente relevante na geodesia física. Embora o geopotencial \( W \) não seja harmônico, ele ainda é uma função escalar contínua e diferenciável, cujo gradiente negativo define o vetor gravidade efetivo:
-
-\[
-\vec{g} = -\nabla W \text{.}
-\]
-
-As superfícies de nível constante de \( W \), chamadas de superfícies equipotenciais, incluem como caso particular a superfície física do geóide. O estudo do geopotencial permite, por exemplo, modelar a direção da vertical física (linha do fio de prumo), calcular alturas dinâmicas e ortométricas, e representar com precisão o campo da gravidade terrestre observado.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Que características deve cumprir uma superfície para ser chamada de “superfície equipotencial” ou “superfície de nível”? Demostrar}
 
-Uma superfície equipotencial, também chamada de superfície de nível, é o conjunto de todos os pontos do espaço onde uma função escalar \( U(\mathbf{r}) \) — como o potencial gravitacional \( V \) ou o potencial de gravidade \( W \) — assume o mesmo valor constante. Ou seja, a característica essencial que define uma superfície equipotencial é que o potencial não varia ao longo dessa superfície. Matematicamente, isso significa que:
+Uma superfície equipotencial, também chamada de superfície de nível, é o conjunto de todos os pontos do espaço onde uma função escalar \( U(\mathbf{r}) \)  (como o potencial gravitacional \( V \) ou o potencial de gravidade \( W \)) assume o mesmo valor constante. Ou seja, a característica essencial que define uma superfície equipotencial é que o potencial não varia ao longo dessa superfície. Matematicamente, isso significa que:
 
 \[
 U(\mathbf{r}) = \text{constante} \quad \text{para todo } \mathbf{r} \in S \text{,}
 \]
 
+\noindent
 onde \( S \) é a superfície em questão.
 
 Para que uma superfície seja considerada equipotencial, ela deve cumprir as seguintes condições matemáticas e físicas:
 
-1. O gradiente do potencial é perpendicular à superfície em todos os seus pontos.  
+\begin{enumerate}
+   \item \textbf{O gradiente do potencial é perpendicular à superfície em todos os seus pontos.} \\
    Essa propriedade decorre diretamente do fato de que o vetor gradiente aponta na direção de maior variação da função escalar. Como não há variação do potencial ao longo da superfície equipotencial, o vetor gradiente de \( U \) deve ser normal à superfície em todos os pontos:
-
    \[
    \nabla U \perp T_p(S) \quad \text{para todo } p \in S \text{,}
    \]
-
    onde \( T_p(S) \) representa o plano tangente à superfície \( S \) no ponto \( p \).
 
-2. A força associada ao campo é perpendicular à superfície. 
-   Na geodesia física, o campo de força correspondente é obtido como o gradiente negativo do potencial:
-
+   \item \textbf{A força associada ao campo é perpendicular à superfície.} \\
+   O campo de força correspondente é obtido como o gradiente negativo do potencial:
    \[
    \vec{F} = -\nabla U \text{.}
    \]
-
    Isso implica que a força atua na direção normal à superfície equipotencial, ou seja, não existe componente tangencial da força sobre essa superfície. Em termos físicos, isso significa que uma massa colocada sobre uma superfície equipotencial não se moveria espontaneamente ao longo dela (caso não haja outras forças atuando), pois não haveria força resultante nessa direção.
 
-3. A diferencial do potencial é nula para deslocamentos infinitesimais ao longo da superfície.  
+   \item \textbf{A diferencial do potencial é nula para deslocamentos infinitesimais ao longo da superfície.} \\
    Seja \( d\mathbf{r} \) um deslocamento infinitesimal tangente à superfície, então:
-
    \[
    dU = \nabla U \cdot d\mathbf{r} = 0 \text{.}
    \]
-
    Isso confirma que o valor do potencial permanece constante ao longo de qualquer trajetória contida na superfície.
+\end{enumerate}
+
 
 Essas propriedades podem ser sintetizadas da seguinte forma: uma superfície \( S \) é equipotencial se e somente se o campo vetorial derivado de \( U \) (seja ele o campo gravitacional \( \vec{g} = -\nabla W \), ou o campo de atração \( \vec{F} = -\nabla V \)) for sempre ortogonal à superfície e o potencial não variar sobre ela.
-
-A importância dessa definição é fundamental na geodesia, pois o geóide — superfície de referência para altitudes — é definido como uma superfície equipotencial do geopotencial \( W \). A direção da vertical física (linha do fio de prumo) é perpendicular ao geóide e às demais superfícies equipotenciais. Isso justifica a aplicação prática dessas superfícies na definição de alturas, nivelamento e modelagem do campo de gravidade da Terra.
-
-Em conclusão, uma superfície pode ser chamada de equipotencial ou superfície de nível quando ela é formada por todos os pontos onde o potencial \( U \) assume o mesmo valor, ou seja, quando:
-
-\[
-U(\mathbf{r}) = \text{constante} \quad \Rightarrow \quad \nabla U \cdot d\mathbf{r} = 0 \text{,}
-\]
-
-o que implica que o vetor força \( -\nabla U \) é sempre normal à superfície.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Que relação é possível estabelecer através da Equação Generalizada de Bruns? Explicar detalhadamente.}
 
-A Equação Generalizada de Bruns estabelece uma relação fundamental entre a altura geoidal \( N \) — que é a separação entre a superfície física de referência (o geóide) e uma superfície matemática de referência (como o elipsoide) — e a anômala do potencial \( T \), que representa a diferença entre o potencial de gravidade real da Terra \( W \) e o potencial de um modelo matemático idealizado \( U \), conhecido como potencial normal. Essa equação é de importância central na geodesia física, pois fornece o vínculo quantitativo entre observações gravimétricas e o modelo de forma da Terra.
-
-A equação é expressa da seguinte forma:
+A Equação Generalizada de Bruns estabelece uma relação fundamental entre a altura geoidal \( N \) e a o potencial anomalo \( T \), que representa a diferença entre o potencial de gravidade real da Terra \( W \) e o potencial de um modelo matemático idealizado \( U \), conhecido como potencial normal. A equação é expressa da seguinte forma:
 
 \[
 N = \frac{T}{\gamma} = \frac{W - U}{\gamma} \text{,}
 \]
 
-onde:
-
-- \( N \) é a altura geoidal, ou separação geoidal, medida ao longo da vertical física;
-- \( T = W - U \) é a anômala do potencial, ou diferença entre o potencial de gravidade real e o potencial normal;
-- \( \gamma \) é o módulo da gravidade normal no ponto considerado, ou seja, a aceleração da gravidade no modelo de referência (geralmente o elipsoide GRS80 ou WGS84).
+\noindent
+onde: \( N \) é a altura geoidal; \( T = W - U \) é o potencial anomalo; e \( \gamma \) é o módulo da gravidade normal no ponto considerado.
 
 
 A equação mostra que a separação entre o geóide e o elipsoide (representada por \( N \)) depende da intensidade da anomalia do potencial no ponto considerado e da gravidade normal. Ou seja, quanto maior a diferença entre o campo gravitacional real e o idealizado, maior será o desvio da superfície física da Terra em relação ao modelo matemático.
@@ -604,41 +487,35 @@ Essa relação decorre de uma linearização da equação do potencial ao longo 
 W(P) = U(Q) \approx U(P) + \frac{\partial U}{\partial h} N = U(P) + \gamma N \text{,}
 \]
 
+\noindent
 de onde se isola:
 
 \[
 N = \frac{W(P) - U(P)}{\gamma} = \frac{T(P)}{\gamma} \text{.}
 \]
 
-A equação generalizada de Bruns tem diversas aplicações práticas na geodesia:
+A equação generalizada de Bruns tem diversas aplicações práticas:
 
-1. Determinação do geóide a partir de dados gravimétricos: Como \( T \) pode ser estimado por meio de medições gravimétricas e modelos do potencial normal, a equação permite calcular \( N \) e, assim, mapear a forma do geóide.
+\begin{enumerate}
+   \item \textbf{Determinação do geóide a partir de dados gravimétricos:} \\
+   Como \( T \) pode ser estimado por meio de medições gravimétricas e modelos do potencial normal, a equação permite calcular \( N \) e, assim, mapear a forma do geóide.
 
-2. Transformação entre alturas: A equação é usada para converter alturas geométricas (obtidas por GNSS em relação ao elipsoide) em alturas físicas (ortométricas ou dinâmicas), que se referem ao nível médio do mar, por meio da relação:
-
+   \item \textbf{Transformação entre alturas:} \\
+   A equação é usada para converter alturas geométricas (obtidas por GNSS em relação ao elipsoide) em alturas físicas (ortométricas ou dinâmicas), que se referem ao nível médio do mar, por meio da relação:
    \[
    H = h - N \text{,}
    \]
-
    onde \( h \) é a altura elipsoidal e \( H \) é a altura ortométrica.
 
-3. Avaliação de modelos geopotenciais: A anômala do potencial \( T \) é sensível à qualidade do modelo normal adotado. Assim, a equação de Bruns também serve para avaliar a fidelidade dos modelos de gravidade utilizados.
-
-A equação de Bruns, na forma apresentada, é uma aproximação linear, válida sob a hipótese de que \( N \) é pequeno (da ordem de dezenas de metros) e que o campo gravitacional pode ser tratado como aproximadamente vertical e homogêneo em escala local. Em regiões montanhosas ou onde há grandes variações da densidade, refinamentos adicionais podem ser necessários, como considerar a gravidade média ao longo da vertical ou usar formas mais completas da equação.
-
-Em resumo, a Equação Generalizada de Bruns estabelece uma ligação direta entre a anômala do potencial \( T = W - U \) e a altura geoidal \( N \), sendo formulada como:
-
-\[
-N = \frac{T}{\gamma} \text{.}
-\]
-
-Ela constitui a base conceitual e computacional para a determinação do geóide a partir de dados gravimétricos, permitindo conectar modelos teóricos do campo da gravidade com observações físicas e geométricas da superfície terrestre.
+   \item \textbf{Avaliação de modelos geopotenciais:} \\
+   A anômala do potencial \( T \) é sensível à qualidade do modelo normal adotado. Assim, a equação de Bruns também serve para avaliar a fidelidade dos modelos de gravidade utilizados.
+\end{enumerate}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Explicar detalhadamente as relações físicas existentes entre os harmônicos de baixo grau e o cálculo do centro de massas e os momentos e produtos de inercia da Terra.}
 
-As componentes de baixo grau da expansão em harmônicos esféricos do potencial gravitacional da Terra contêm informações físicas fundamentais sobre a distribuição global de massa do planeta. Em particular, os coeficientes harmônicos dos graus \( \ell = 1 \) e \( \ell = 2 \) estão diretamente relacionados ao centro de massas da Terra e aos seus momentos e produtos de inércia principais. Esses coeficientes não são apenas abstrações matemáticas: eles refletem propriedades físicas mensuráveis e têm interpretações geométricas e dinâmicas claras no contexto da geodesia e da física planetária.
+As componentes de baixo grau da expansão em harmônicos esféricos do potencial gravitacional da Terra contêm informações físicas fundamentais sobre a distribuição global de massa do planeta. Em particular, os coeficientes harmônicos dos graus \( \ell = 1 \) e \( \ell = 2 \) estão diretamente relacionados ao centro de massas da Terra e aos seus momentos e produtos de inércia principais. 
 
 Os termos de grau \( \ell = 1 \) da expansão harmônica esférica representam translações do sistema de coordenadas em relação ao centro de massa da Terra. Na forma geral do potencial gravitacional externo \( V \), expresso por harmônicos esféricos (para \( r > R \), com \( R \) sendo o raio de referência):
 
@@ -646,15 +523,17 @@ Os termos de grau \( \ell = 1 \) da expansão harmônica esférica representam t
 V(r, \theta, \lambda) = \frac{GM}{r} \left[ 1 + \sum_{\ell=1}^{\infty} \left( \frac{R}{r} \right)^\ell \sum_{m=0}^{\ell} \left( \bar{C}_{\ell m} \cos m\lambda + \bar{S}_{\ell m} \sin m\lambda \right) \bar{P}_{\ell m}(\cos \theta) \right] \text{,}
 \]
 
+\noindent
 os coeficientes \( \bar{C}_{10} \), \( \bar{C}_{11} \), e \( \bar{S}_{11} \) correspondem ao grau 1. Fisicamente, esses coeficientes são proporcionais às componentes da posição do centro de massa da Terra com relação ao sistema de coordenadas adotado. Caso o sistema de coordenadas esteja corretamente centrado no centro de massa da Terra, então os coeficientes de grau 1 devem ser nulos:
 
 \[
 \bar{C}_{10} = \bar{C}_{11} = \bar{S}_{11} = 0 \text{.}
 \]
 
+\noindent
 Portanto, a presença de termos de grau 1 indica que o sistema de referência adotado (por exemplo, o centro do elipsoide de referência) não coincide com o centro de massa físico da Terra. Essa é uma verificação importante para validar o alinhamento dos sistemas de referência em modelos geopotenciais globais.
 
-Os coeficientes harmônicos de grau \( \ell = 2 \) — que incluem \( \bar{C}_{20} \), \( \bar{C}_{21} \), \( \bar{S}_{21} \), \( \bar{C}_{22} \) e \( \bar{S}_{22} \) — estão diretamente relacionados à matriz de inércia da Terra, que descreve como a massa está distribuída com relação ao centro de massa e aos eixos principais.
+Os coeficientes harmônicos de grau \( \ell = 2 \) (que incluem \( \bar{C}_{20} \), \( \bar{C}_{21} \), \( \bar{S}_{21} \), \( \bar{C}_{22} \) e \( \bar{S}_{22} \)) estão diretamente relacionados à matriz de inércia da Terra, que descreve como a massa está distribuída com relação ao centro de massa e aos eixos principais.
 
 A matriz de inércia \( \mathbf{I} \) da Terra é definida como:
 
@@ -668,44 +547,56 @@ I_{xx} & -I_{xy} & -I_{xz} \\
 \text{,}
 \]
 
+\noindent
 onde os termos diagonais \( I_{xx}, I_{yy}, I_{zz} \) são os momentos principais de inércia, e os termos fora da diagonal \( I_{xy}, I_{xz}, I_{yz} \) são os produtos de inércia.
 
 Esses componentes de inércia estão relacionados com os coeficientes do potencial gravitacional da seguinte forma (valores simplificados e normalizados para o caso do grau 2):
 
-- O coeficiente \( \bar{C}_{20} \) está associado à diferença entre os momentos polares e equatoriais de inércia. Ele é responsável por descrever o achatamento polar da Terra:
+\begin{itemize}
+   \item \textbf{O coeficiente \( \bar{C}_{20} \):} \\
+   Está associado à diferença entre os momentos polares e equatoriais de inércia. Ele é responsável por descrever o achatamento polar da Terra:
+   \[
+   \bar{C}_{20} \propto \frac{1}{2} \left( 2I_{zz} - I_{xx} - I_{yy} \right)
+   \]
+   Quando positivo (na convenção antiga), indica que a Terra é mais achatada nos polos do que no equador, como ocorre de fato.
 
-  \[
-  \bar{C}_{20} \propto \frac{1}{2} \left( 2I_{zz} - I_{xx} - I_{yy} \right)
-  \]
+   \item \textbf{Os coeficientes \( \bar{C}_{21} \) e \( \bar{S}_{21} \):} \\
+   Descrevem a inclinação do eixo de rotação em relação aos eixos principais de inércia (ou à orientação do sistema de referência). Eles estão ligados aos produtos de inércia \( I_{xz} \) e \( I_{yz} \):
+   \[
+   \bar{C}_{21} \propto I_{xz}, \quad \bar{S}_{21} \propto I_{yz}
+   \]
 
-  Quando positivo (na convenção antiga), indica que a Terra é mais achatada nos polos do que no equador, como ocorre de fato.
+   \item \textbf{Os coeficientes \( \bar{C}_{22} \) e \( \bar{S}_{22} \):} \\
+   Estão ligados à assimetria equatorial da Terra, ou seja, às diferenças de distribuição de massa no plano equatorial. São relacionados a:
+   \[
+   \bar{C}_{22} \propto \frac{1}{4}(I_{xx} - I_{yy}), \quad \bar{S}_{22} \propto I_{xy}
+   \]
+\end{itemize}
 
-- Os coeficientes \( \bar{C}_{21} \) e \( \bar{S}_{21} \) descrevem a inclinação do eixo de rotação em relação aos eixos principais de inércia (ou à orientação do sistema de referência). Eles estão ligados aos produtos de inércia \( I_{xz} \) e \( I_{yz} \):
 
-  \[
-  \bar{C}_{21} \propto I_{xz}, \quad \bar{S}_{21} \propto I_{yz}
-  \]
 
-- Os coeficientes \( \bar{C}_{22} \) e \( \bar{S}_{22} \) estão ligados à assimetria equatorial da Terra, ou seja, às diferenças de distribuição de massa no plano equatorial. São relacionados a:
 
-  \[
-  \bar{C}_{22} \propto \frac{1}{4}(I_{xx} - I_{yy}), \quad \bar{S}_{22} \propto I_{xy}
-  \]
+%A análise desses termos permite estimar a orientação e os eixos principais da massa terrestre, bem como estudar o comportamento dinâmico do planeta — como precessão, nutação e variações no eixo de rotação (movimento de Chandler, por exemplo).
 
-A análise desses termos permite estimar a orientação e os eixos principais da massa terrestre, bem como estudar o comportamento dinâmico do planeta — como precessão, nutação e variações no eixo de rotação (movimento de Chandler, por exemplo).
+%O estudo dos harmônicos de baixo grau revela informações fundamentais sobre a estrutura da Terra como corpo físico:
 
-O estudo dos harmônicos de baixo grau revela informações fundamentais sobre a estrutura da Terra como corpo físico:
-
-- Permite identificar o centro de massa e verificar o alinhamento dos sistemas de referência;
-- Permite calcular os momentos de inércia, essenciais para a compreensão da dinâmica de rotação da Terra;
-- Ajuda a inferir a distribuição global de massas, essencial em estudos de estrutura interna da Terra, oceanografia, glaciologia e modelagem de marés;
-- É base para a determinação precisa do campo gravitacional terrestre global, a partir de missões como GRACE e GOCE, que medem diretamente essas variações.
+%- Permite identificar o centro de massa e verificar o alinhamento dos sistemas de referência;
+%- Permite calcular os momentos de inércia, essenciais para a compreensão da dinâmica de rotação da Terra;
+%- Ajuda a inferir a distribuição global de massas, essencial em estudos de estrutura interna da Terra, oceanografia, glaciologia e modelagem de marés;
+%- É base para a determinação precisa do campo gravitacional terrestre global, a partir de missões como GRACE e GOCE, que medem diretamente essas variações.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{O que quer dizer que o potencial gravitacional $V$ é simétrico em relação à rotação terrestre quando falamos de esferopotencial? Explicar detalhadamente.}
 
-Quando se afirma que o potencial gravitacional \( V \) é simétrico em relação à rotação terrestre no contexto do esferopotencial, quer-se dizer que esse potencial é invariável sob rotações em torno do eixo da Terra, ou seja, não depende da longitude geográfica \( \lambda \). Em termos matemáticos, essa propriedade de simetria axial se expressa pela condição \( \frac{\partial V}{\partial \lambda} = 0 \), o que implica que o valor do potencial em um ponto qualquer depende exclusivamente da distância radial ao centro da Terra \( r \) e da colatitude \( \theta \) (ou latitude), mas não varia ao longo dos meridianos. Essa invariância longitudinal está diretamente relacionada ao modelo idealizado adotado no esferopotencial, no qual a Terra é representada como um corpo cuja massa está distribuída de maneira perfeitamente simétrica em torno de seu eixo de rotação.
+Quando se afirma que o potencial gravitacional \( V \) é simétrico em relação à rotação terrestre no contexto do esferopotencial, quer-se dizer que esse potencial é invariável sob rotações em torno do eixo da Terra, ou seja, não depende da longitude geográfica \( \lambda \). Em termos matemáticos, essa propriedade de simetria axial se expressa pela condição:
+
+\[  
+\frac{\partial V}{\partial \lambda} = 0 \text{,}
+\]
+
+\noindent
+o que implica que o valor do potencial em um ponto qualquer depende exclusivamente da distância radial ao centro da Terra \( r \) e da colatitude \( \theta \) (ou latitude), mas não varia ao longo dos meridianos. Essa invariância longitudinal está diretamente relacionada ao modelo idealizado adotado no esferopotencial, no qual a Terra é representada como um corpo cuja massa está distribuída de maneira perfeitamente simétrica em torno de seu eixo de rotação.
 
 Tal simetria tem uma consequência direta na forma da equação do potencial gravitacional quando este é expandido em harmônicos esféricos. A expansão geral do potencial gravitacional externo da Terra, válido para pontos fora da massa terrestre, é dada por:
 
@@ -713,15 +604,15 @@ Tal simetria tem uma consequência direta na forma da equação do potencial gra
 V(r, \theta, \lambda) = \frac{GM}{r} \left[1 + \sum_{\ell=1}^{\infty} \left( \frac{R}{r} \right)^\ell \sum_{m=0}^\ell \left( \bar{C}_{\ell m} \cos m\lambda + \bar{S}_{\ell m} \sin m\lambda \right) \bar{P}_{\ell m}(\cos \theta) \right] \text{,}
 \]
 
+\noindent
 onde \( GM \) é o produto da constante gravitacional pela massa da Terra, \( R \) é o raio de referência, \( \bar{P}_{\ell m} \) são os polinômios de Legendre normalizados, e os coeficientes \( \bar{C}_{\ell m} \), \( \bar{S}_{\ell m} \) representam a contribuição da distribuição de massa para cada grau \( \ell \) e ordem \( m \). No modelo esferopotencial, os termos de ordem \( m \geq 1 \) desaparecem devido à ausência de variações longitudinais, restando apenas os termos de ordem zero (os chamados termos zonais), de modo que a expressão se reduz para:
 
 \[
 V(r, \theta) = \frac{GM}{r} \left[1 - \sum_{\ell=1}^{\infty} J_\ell \left( \frac{R}{r} \right)^\ell P_\ell(\cos \theta) \right] \text{,}
 \]
 
+\noindent
 em que \( J_\ell = -\bar{C}_{\ell 0} \) são os coeficientes zonais e \( P_\ell \) são os polinômios de Legendre de grau \( \ell \). O termo mais significativo nessa expansão é o de grau \( \ell = 2 \), isto é, \( J_2 \), que representa o achatamento da Terra nos polos devido à rotação. A presença desse termo reflete a forma oblata do planeta, caracterizada por um raio equatorial maior do que o raio polar.
-
-A importância dessa simetria para a geodesia física é central. Ela permite a construção do chamado potencial normal \( U \), que é um modelo teórico do campo de gravidade da Terra baseado em uma Terra elipsoidal com massa distribuída de forma simétrica em torno do eixo de rotação. O potencial normal é utilizado como referência na definição do geóide, na conversão de alturas e no cálculo da anômala do potencial \( T = W - U \), onde \( W \) é o geopotencial terrestre. Como \( U \) depende apenas de \( r \) e \( \theta \), ele pode ser expresso de forma analítica, o que facilita enormemente os cálculos práticos e teóricos em geodesia.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -735,17 +626,10 @@ No contexto do esferopotencial, assume-se que o potencial gravitacional da Terra
 V(r, \theta) = \frac{GM}{r} \left[ 1 - \sum_{\ell=1}^\infty J_\ell \left( \frac{R}{r} \right)^\ell P_\ell(\cos \theta) \right] \text{,}
 \]
 
-onde:
-
-- \( GM \) é o produto da constante gravitacional universal \( G \) pela massa da Terra \( M \);
-- \( r \) é a distância radial ao centro da Terra;
-- \( \theta \) é a colatitude (ângulo medido a partir do polo norte);
-- \( P_\ell(\cos \theta) \) são os polinômios de Legendre de grau \( \ell \);
-- \( J_\ell \) são os coeficientes zonais de grau \( \ell \), tradicionalmente chamados de constantes de Stokes.
+\noindent
+onde \( GM \) representa o produto da constante gravitacional universal \( G \) pela massa da Terra \( M \); \( r \) é a distância radial ao centro da Terra; \( \theta \) é a colatitude, isto é, o ângulo medido a partir do polo norte; \( P_\ell(\cos \theta) \) são os polinômios de Legendre de grau \( \ell \); e \( J_\ell \) são os coeficientes zonais de grau \( \ell \), tradicionalmente denominados constantes de Stokes.
 
 Essas constantes, \( J_2, J_4, J_6, \ldots \), quantificam o desvio do campo gravitacional da Terra em relação ao campo de um corpo esférico perfeito. A constante mais significativa é \( J_2 \), que representa o achatamento equatorial da Terra devido à rotação. Ela está diretamente relacionada à diferença entre os raios equatorial e polar do elipsoide terrestre, e é responsável pela maior parte da discrepância entre a gravidade medida na superfície e aquela que seria esperada em uma esfera homogênea. Os termos de grau mais alto, como \( J_4 \), \( J_6 \), e assim por diante, descrevem variações mais sutis da forma e da estrutura interna da Terra, incluindo irregularidades como a diferença de densidade entre o manto e o núcleo.
-
-A principal funcionalidade das constantes de Stokes no cálculo do esferopotencial é fornecer um modelo matemático preciso e simplificado do campo gravitacional idealizado da Terra, que serve como referência para a geodesia física. Esse modelo, o potencial normal \( U \), é construído com base nesses coeficientes, e é essencial na definição de superfícies equipotenciais de referência, como o elipsoide de referência (por exemplo, GRS80). Com o potencial normal bem definido, pode-se então calcular a anômala do potencial \( T = W - U \), a altura geoidal \( N = T/\gamma \), e outras grandezas fundamentais, como a direção da vertical física, as deflexões da vertical e as alturas ortométricas.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -757,6 +641,7 @@ O geopotencial, geralmente denotado por \( W \), representa o potencial total de
 W = V + \Phi \text{.}
 \]
 
+\noindent
 O geopotencial é a função escalar cujo gradiente negativo define o vetor gravidade efetivo \( \vec{g} = -\nabla W \), ou seja, ele determina tanto a direção quanto a intensidade da gravidade medida em repouso na superfície da Terra. Como \( \Phi \) depende da posição em relação ao eixo de rotação e não é uma função harmônica, o geopotencial tampouco é uma função harmônica. Além disso, as superfícies de nível constante de \( W \), chamadas de superfícies equipotenciais, incluem o geóide, que é definido como a superfície equipotencial que mais se aproxima do nível médio dos mares. O geopotencial é, portanto, uma função realista, mas complexa, que incorpora todas as irregularidades e assimetrias da distribuição de massa do planeta.
 
 O esferopotencial, por outro lado, é uma representação simplificada e idealizada do campo gravitacional da Terra. Também chamado de potencial normal, geralmente simbolizado por \( U \), ele corresponde ao potencial gravitacional de uma Terra fictícia, simétrica em relação ao seu eixo de rotação, e com massa distribuída de forma regular em um elipsoide de revolução. Sua principal característica é a simetria axial, o que implica que ele não depende da longitude \( \lambda \), apenas da distância radial \( r \) e da colatitude \( \theta \). Essa simetria permite que \( U \) seja expresso como uma expansão em harmônicos esféricos contendo apenas os termos zonais (com \( m = 0 \)):
@@ -765,6 +650,7 @@ O esferopotencial, por outro lado, é uma representação simplificada e idealiz
 U(r, \theta) = \frac{GM}{r} \left[1 - \sum_{\ell=1}^\infty J_\ell \left( \frac{R}{r} \right)^\ell P_\ell(\cos \theta) \right] \text{,}
 \]
 
+\noindent
 onde os coeficientes \( J_\ell \), chamados de constantes de Stokes, representam a contribuição de diferentes ordens de achatamento e assimetria axial. O esferopotencial é, por construção, uma função analítica e harmônica no exterior da Terra, o que o torna matematicamente conveniente como modelo de referência para comparar com o campo real.
 
 A diferença entre o campo real e esse campo idealizado é medida por uma terceira função: o potencial anômalo, denotado por \( T \). Essa função é definida como a diferença entre o geopotencial real \( W \) e o esferopotencial \( U \):
@@ -773,26 +659,23 @@ A diferença entre o campo real e esse campo idealizado é medida por uma tercei
 T = W - U \text{.}
 \]
 
+\noindent
 O potencial anômalo expressa, portanto, todas as irregularidades do campo de gravidade real em relação ao modelo idealizado. Ele reflete variações laterais da densidade terrestre, a influência de montanhas, fossas oceânicas, bacias sedimentares, bem como quaisquer outros desvios em relação à simetria axial assumida no modelo normal. O potencial anômalo é o campo fundamental nas análises gravimétricas, pois está diretamente ligado à anômala da gravidade, à deflexão da vertical e à altura geoidal, sendo usado para estudar a estrutura interna da Terra e para refinar modelos locais ou regionais do geóide.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{O que estabelece o Teorema de Clairaut? Explicar detalhadamente.}
 
-O Teorema de Clairaut estabelece uma relação entre a gravidade medida na superfície de um corpo rotante, como a Terra, e a forma desse corpo, em particular o seu achatamento. Trata-se de um resultado clássico da geodesia física, obtido por Alexis Clairaut no século XVIII, que relaciona a variação da gravidade com a latitude à rotação e ao formato da Terra assumida como um elipsoide de revolução em equilíbrio hidrostático.
+O Teorema de Clairaut estabelece uma relação entre a variação da gravidade com a latitude e a forma da Terra, assumida como um elipsoide de revolução em equilíbrio hidrostático, vinculando esse comportamento ao seu achatamento e à rotação do planeta.
 
 A Terra, sendo um corpo em rotação, não é uma esfera perfeita, mas sim ligeiramente oblata: seu raio equatorial é maior que o polar. Essa forma oblata, associada à força centrífuga causada pela rotação, faz com que a gravidade varie com a latitude — sendo menor no equador e maior nos polos. O Teorema de Clairaut quantifica essa variação, estabelecendo que, sob certas hipóteses razoáveis (massa distribuída de forma simétrica em torno do eixo de rotação, equilíbrio hidrostático e pequena excentricidade), a gravidade \( g \) em um ponto sobre a superfície da Terra é dada por:
 
 \[
-g(\phi) = g_e \left( 1 + \beta \sin^2 \phi \right)
+g(\phi) = g_e \left( 1 + \beta \sin^2 \phi \right) \text{,}
 \]
 
-onde:
-
-- \( g(\phi) \) é a gravidade normal em uma latitude geodésica \( \phi \),
-- \( g_e \) é a gravidade no equador,
-- \( \beta \) é um fator que depende do achatamento \( f \) da Terra e da velocidade angular \( \omega \),
-- \( \sin^2 \phi \) expressa a dependência da gravidade com a latitude.
+\noindent
+onde \( g(\phi) \) é a gravidade normal em uma latitude geodésica \( \phi \); \( g_e \) é a gravidade no equador; \( \beta \) é um fator que depende do achatamento \( f \) da Terra e da velocidade angular \( \omega \); e \( \sin^2 \phi \) expressa a dependência da gravidade com a latitude.
 
 A forma mais conhecida e generalizada da expressão é:
 
@@ -800,14 +683,12 @@ A forma mais conhecida e generalizada da expressão é:
 g(\phi) = g_e \left[ 1 + \left( \frac{5}{2}m - f \right)\sin^2 \phi \right]
 \]
 
-em que:
+\noindent
+em que \( f = \frac{a - b}{a} \) é o achatamento do elipsoide, sendo \( a \) e \( b \) os semieixos maior (equatorial) e menor (polar), respectivamente, e \( m = \frac{\omega^2 a^2 b}{GM} \) é o parâmetro dinâmico da Terra, que expressa a razão entre a força centrífuga e a força gravitacional.
 
-- \( f = \frac{a - b}{a} \) é o achatamento do elipsoide, com \( a \) e \( b \) representando os semieixos maior (equatorial) e menor (polar), respectivamente,
-- \( m = \frac{\omega^2 a^2 b}{GM} \) é o parâmetro dinâmico da Terra, que representa a razão entre a força centrífuga e a força gravitacional.
+%A importância do Teorema de Clairaut é que ele permite, com base em medidas da gravidade em diferentes latitudes, estimar o achatamento da Terra e verificar a consistência entre a forma física da Terra e o modelo teórico de equilíbrio hidrostático. Na prática, ele também fornece uma aproximação de primeira ordem para o cálculo da gravidade normal sobre o elipsoide, o que é essencial para correções gravimétricas, determinação de alturas físicas e para a formulação do potencial normal \( U \).
 
-A importância do Teorema de Clairaut é que ele permite, com base em medidas da gravidade em diferentes latitudes, estimar o achatamento da Terra e verificar a consistência entre a forma física da Terra e o modelo teórico de equilíbrio hidrostático. Na prática, ele também fornece uma aproximação de primeira ordem para o cálculo da gravidade normal sobre o elipsoide, o que é essencial para correções gravimétricas, determinação de alturas físicas e para a formulação do potencial normal \( U \).
-
-Esse teorema é derivado a partir das condições de equilíbrio de um fluido em rotação e do fato de que, no equilíbrio hidrostático, a superfície física (como o nível médio do mar) deve coincidir com uma superfície equipotencial do campo de gravidade. A partir da igualdade de potenciais na superfície, combinada com o desenvolvimento em série da gravidade e do potencial centrífugo, obtém-se a relação formal de Clairaut. Ele também está intimamente ligado à Teoria do Elipsoide de Rotação e aparece em discussões sobre o geóide e o campo de gravidade normal.
+%Esse teorema é derivado a partir das condições de equilíbrio de um fluido em rotação e do fato de que, no equilíbrio hidrostático, a superfície física (como o nível médio do mar) deve coincidir com uma superfície equipotencial do campo de gravidade. A partir da igualdade de potenciais na superfície, combinada com o desenvolvimento em série da gravidade e do potencial centrífugo, obtém-se a relação formal de Clairaut. Ele também está intimamente ligado à Teoria do Elipsoide de Rotação e aparece em discussões sobre o geóide e o campo de gravidade normal.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -874,37 +755,29 @@ Resposta:
 
 \section{Qual é a principal diferença entre “anomalia da gravidade” e “distúrbio da gravidade”? Explicar detalhadamente.}
 
-A anomalia da gravidade e o distúrbio da gravidade são duas quantidades fundamentais da geodesia física que representam diferentes aspectos da variação do campo de gravidade terrestre em relação a um modelo de referência idealizado. Embora ambas expressem desvios entre a gravidade real da Terra e a gravidade normal fornecida por um elipsoide de referência, elas se diferenciam principalmente pela superfície em que são avaliadas e pelo tipo de comparação que realizam. Essa distinção é essencial tanto para a correta interpretação dos dados gravimétricos quanto para a aplicação de modelos de potencial.
-
 A anomalia da gravidade, geralmente representada por \( \Delta g \), é definida como a diferença entre a gravidade observada \( g_P \), medida sobre a superfície física da Terra (em um ponto \( P \)), e a gravidade normal \( \gamma_Q \), calculada no ponto \( Q \) da superfície do elipsoide de referência que possui a mesma latitude geodésica e longitude que \( P \). Matematicamente, temos:
 
 \[
 \Delta g = g_P - \gamma_Q
 \]
 
-Essa definição implica que a anomalia da gravidade compara valores obtidos em pontos diferentes: o valor observado na superfície física (que pode estar acima do nível do mar ou em terreno montanhoso) com o valor teórico que o modelo de elipsoide forneceria se o ponto estivesse sobre sua superfície. Como os pontos \( P \) e \( Q \) não coincidem espacialmente, a anomalia da gravidade reflete não apenas variações internas da estrutura da Terra (diferenças de densidade, por exemplo), mas também os efeitos do relevo e da topografia. Por isso, ela é utilizada principalmente em interpretações geofísicas, como na análise de estruturas geológicas, mapeamento de bacias sedimentares e estudos isostáticos.
+\noindent
+Essa definição implica que a anomalia da gravidade compara valores obtidos em pontos diferentes: o valor observado na superfície física com o valor teórico que o modelo de elipsoide forneceria se o ponto estivesse sobre sua superfície. Como os pontos \( P \) e \( Q \) não coincidem espacialmente, a anomalia da gravidade reflete não apenas variações internas da estrutura da Terra (diferenças de densidade, por exemplo), mas também os efeitos do relevo e da topografia. 
 
-Por outro lado, o distúrbio da gravidade, denotado por \( \delta g \), é definido como a diferença entre a gravidade observada \( g_P \), no ponto \( P \) sobre a superfície física da Terra, e a gravidade normal \( \gamma_P \) calculada no mesmo ponto físico \( P \), mas com base no modelo normal de gravidade:
+Por outro lado, o distúrbio da gravidade, denotado por \( \delta g \), é definido como a diferença entre a gravidade observada \( g_P \), no ponto \( P \) sobre a superfície física da Terra, e a gravidade normal \( \gamma_P \) calculada no mesmo ponto físico \( P \):
 
 \[
 \delta g = g_P - \gamma_P
 \]
 
-Aqui, a comparação é feita no mesmo ponto do espaço, o que significa que o distúrbio da gravidade elimina o efeito do desnível entre a superfície física e o elipsoide. Ele representa, portanto, uma medida local e intrínseca da diferença entre o campo real e o campo de referência, sendo especialmente útil em aplicações geodésicas rigorosas, como o cálculo do potencial anômalo e o ajuste de redes altimétricas.
-
-Em termos conceituais, a anomalia da gravidade pode ser vista como uma medida global, pois envolve o transporte da gravidade normal desde o elipsoide até a superfície física, o que introduz dependência da topografia e da altitude. Já o distúrbio da gravidade é uma medida local, puramente relacionada à diferença entre os dois campos de gravidade (real e normal) no mesmo ponto do espaço, o que o torna mais diretamente vinculado à anomalia do potencial:
-
-\[
-\delta g = -\frac{\partial T}{\partial h}
-\]
-
-onde \( T = W - U \) é o potencial anômalo, \( W \) é o geopotencial real, \( U \) é o potencial normal, e \( h \) é a altura sobre o elipsoide.
+\noindent
+Aqui, a comparação é feita no mesmo ponto do espaço, o que significa que o distúrbio da gravidade elimina o efeito do desnível entre a superfície física e o elipsoide. Ele representa, portanto, uma medida local e intrínseca da diferença entre o campo real e o campo de referência.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{O que estabelece a “Equação fundamental da Geodésia Física”? Explicar detalhadamente.}
 
-A Equação Fundamental da Geodésia Física estabelece uma relação direta entre a anômala da gravidade e o potencial anômalo, permitindo interpretar variações observadas no campo da gravidade terrestre como decorrentes de diferenças entre o campo real de gravidade e o campo idealizado de referência. Essa equação é um dos pilares da geodesia física, pois conecta uma quantidade observável (a gravidade) a uma grandeza teórica fundamental (o potencial).
+A Equação Fundamental da Geodésia Física estabelece uma relação direta entre a anômala da gravidade e o potencial anômalo, permitindo interpretar variações observadas no campo da gravidade terrestre como decorrentes de diferenças entre o campo real de gravidade e o campo idealizado de referência. 
 
 Formalmente, a equação fundamental da geodesia física pode ser expressa como:
 
@@ -912,21 +785,15 @@ Formalmente, a equação fundamental da geodesia física pode ser expressa como:
 \Delta g = -\frac{\partial T}{\partial h} + \frac{1}{\gamma} \frac{\partial U}{\partial h} \left( \frac{\partial T}{\partial h} \right) - \frac{\partial \gamma}{\partial h} \, \zeta
 \]
 
+\noindent
 ou, em uma forma aproximada de primeira ordem, comumente usada na prática:
 
 \[
 \Delta g \approx -\frac{\partial T}{\partial h} - \frac{\partial \gamma}{\partial h} \, \zeta
 \]
 
-onde:
-
-- \( \Delta g \) é a anomalia da gravidade (gravidade observada menos gravidade normal no elipsoide),
-- \( T = W - U \) é o potencial anômalo, isto é, a diferença entre o geopotencial real \( W \) e o potencial normal \( U \),
-- \( h \) é a altura elipsoidal (distância radial ao longo da normal ao elipsoide),
-- \( \gamma \) é a gravidade normal no elipsoide,
-- \( \frac{\partial T}{\partial h} \) é a derivada vertical do potencial anômalo,
-- \( \frac{\partial \gamma}{\partial h} \) é o gradiente vertical da gravidade normal, e
-- \( \zeta \) é a ondulação do geóide, ou seja, a separação entre o geóide e o elipsoide de referência.
+\noindent
+onde \( \Delta g \) é a anomalia da gravidade, definida como a diferença entre a gravidade observada e a gravidade normal no elipsoide; \( T = W - U \) é o potencial anômalo, correspondente à diferença entre o geopotencial real \( W \) e o potencial normal \( U \); \( h \) é a altura elipsoidal, medida ao longo da normal ao elipsoide; \( \gamma \) é a gravidade normal no elipsoide; \( \frac{\partial T}{\partial h} \) representa a derivada vertical do potencial anômalo; \( \frac{\partial \gamma}{\partial h} \) é o gradiente vertical da gravidade normal; e \( \zeta \) é a ondulação do geóide, ou seja, a distância entre o geóide e o elipsoide de referência.
 
 A equação mostra que a anomalia da gravidade pode ser interpretada como composta por duas partes principais: uma relacionada à variação do potencial anômalo com a altura (isto é, o campo de massa acima e abaixo do ponto considerado), e outra relacionada à diferença geométrica entre a superfície de nível físico (o geóide) e o elipsoide de referência. Em termos físicos, a equação expressa como uma diferença no campo de gravidade pode ser decomposta em um efeito devido a massas anômalas (representadas por \( \partial T/\partial h \)) e a uma perturbação geométrica na posição das superfícies equipotenciais (representada por \( \zeta \)).
 
@@ -936,12 +803,12 @@ A derivação dessa equação parte da comparação entre o campo de gravidade r
 g = -\nabla W \quad \text{e} \quad \gamma = -\nabla U \text{,}
 \]
 
+\noindent
 e que o potencial anômalo é a diferença \( T = W - U \), então o vetor diferença entre os dois campos de gravidade será dado por:
 
 \[
 \vec{g} - \vec{\gamma} = -\nabla T \text{.}
 \]
 
-Considerando a componente vertical dessa diferença, tem-se que a variação da gravidade medida em relação à gravidade normal (isto é, \( \Delta g \)) pode ser interpretada como o efeito da derivada vertical de \( T \), mais um termo corretivo associado ao deslocamento entre superfícies de referência. Isso leva à forma geral da equação fundamental, que, como se vê, é uma equação de sensibilidade vertical, muito utilizada na interpretação geodésica e geofísica do campo gravitacional.
-
-Na prática, essa equação permite converter observações gravimétricas em estimativas do potencial anômalo, que por sua vez é utilizado para o cálculo da altura geoidal (por meio da equação de Bruns), para a modelagem do geóide e para o ajuste de redes altimétricas. Além disso, ela é essencial em métodos de interpolação de dados gravimétricos, como o collocation ou o uso da fórmula de Stokes.
+\noindent
+Considerando a componente vertical dessa diferença, tem-se que a variação da gravidade medida em relação à gravidade normal (isto é, \( \Delta g \)) pode ser interpretada como o efeito da derivada vertical de \( T \), mais um termo corretivo associado ao deslocamento entre superfícies de referência. Na prática, essa equação permite converter observações gravimétricas em estimativas do potencial anômalo, que por sua vez é utilizado para o cálculo da altura geoidal, para a modelagem do geóide e para o ajuste de redes altimétricas.
