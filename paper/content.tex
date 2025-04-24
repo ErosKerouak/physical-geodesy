@@ -123,8 +123,6 @@ No entanto, \textit{fora das massas}, isto é, nos pontos do espaço onde \( \rh
 \nabla^2 V(\mathbf{r}) = 0 \text{.}
 \]
 
-Dessa forma, o potencial gravitacional \( V \) é uma função \textit{harmônica} fora das massas e uma função \textit{superharmônica} dentro delas. Esse resultado é fundamental na geodésia física e na modelagem do campo de gravidade terrestre, sendo extensivamente utilizado na formulação de problemas de contorno e na determinação do campo externo da Terra por meio da teoria do potencial.
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -209,14 +207,14 @@ Portanto, verifica-se que:
 \noindent
 Esta demonstração confirma que \( \frac{1}{l} \) satisfaz a equação de Laplace em todo o domínio exceto no ponto \( P = (\xi, \eta, \zeta) \), onde ocorre uma singularidade (isto é, \( l = 0 \)). Nesse ponto, o potencial torna-se indefinido, divergindo para o infinito. Consequentemente, suas derivadas de segunda ordem também não existem nesse ponto, e a equação de Laplace deixa de ser válida.
 
-No contexto da teoria das distribuições, é possível mostrar que:
+%No contexto da teoria das distribuições, é possível mostrar que:
 
-\[
-\nabla^2 \left( \frac{1}{l} \right) = -4\pi \delta(\mathbf{r} - \mathbf{r}_0) \text{,}
-\]
+%\[
+%\nabla^2 \left( \frac{1}{l} \right) = -4\pi \delta(\mathbf{r} - \mathbf{r}_0) \text{,}
+%\]
 
-\noindent
-em que \( \delta \) é a função delta de Dirac centrada no ponto de singularidade \( \mathbf{r}_0 = (\xi, \eta, \zeta) \). Essa formulação revela que a função \( \frac{1}{l} \) pode ser considerada como uma solução fundamental da equação de Poisson.
+%\noindent
+%em que \( \delta \) é a função delta de Dirac centrada no ponto de singularidade \( \mathbf{r}_0 = (\xi, \eta, \zeta) \). Essa formulação revela que a função \( \frac{1}{l} \) pode ser considerada como uma solução fundamental da equação de Poisson.
 
 
 
@@ -337,8 +335,6 @@ V(P) = \frac{1}{4\pi} \int_S \left( \frac{1}{l} \frac{\partial V}{\partial n} - 
 
 \noindent
 com \( l \) representando a distância entre o ponto de avaliação \( P \) e o ponto de integração sobre a superfície \( S \), e \( \frac{\partial}{\partial n} \) denotando a derivada normal externa. Quando os valores da derivada normal são desconhecidos (caso típico do problema de Dirichlet), a segunda parcela do integrando é suficiente para determinar a solução, e a integral de Poisson resulta diretamente desse termo.
-
-%A importância da Integral de Poisson se manifesta, portanto, em três aspectos principais. Primeiramente, ela oferece uma solução explícita e construtiva para o problema de Dirichlet em regiões esféricas, garantindo que, para cada função contínua definida sobre a fronteira da esfera, existe uma função harmônica que coincide com ela na fronteira e que é única no domínio externo. Em segundo lugar, sua forma integral revela que a solução em qualquer ponto do espaço é uma média ponderada dos valores na fronteira, o que fornece uma interpretação física e geométrica do comportamento do potencial gravitacional: ele é suavizado no interior do domínio em relação aos valores de contorno, sem oscilações abruptas. Em terceiro lugar, a Integral de Poisson estabelece a base conceitual para métodos numéricos e aproximados utilizados em geodesia, como as formulações baseadas em kernels harmônicos, interpolação espectral e continuação harmônica.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -494,28 +490,28 @@ de onde se isola:
 N = \frac{W(P) - U(P)}{\gamma} = \frac{T(P)}{\gamma} \text{.}
 \]
 
-A equação generalizada de Bruns tem diversas aplicações práticas:
+%A equação generalizada de Bruns tem diversas aplicações práticas:
 
-\begin{enumerate}
-   \item \textbf{Determinação do geóide a partir de dados gravimétricos:} \\
-   Como \( T \) pode ser estimado por meio de medições gravimétricas e modelos do potencial normal, a equação permite calcular \( N \) e, assim, mapear a forma do geóide.
+%\begin{enumerate}
+%   \item \textbf{Determinação do geóide a partir de dados gravimétricos:} \\
+%   Como \( T \) pode ser estimado por meio de medições gravimétricas e modelos do potencial normal, a %quação permite calcular \( N \) e, assim, mapear a forma do geóide.
 
-   \item \textbf{Transformação entre alturas:} \\
-   A equação é usada para converter alturas geométricas (obtidas por GNSS em relação ao elipsoide) em alturas físicas (ortométricas ou dinâmicas), que se referem ao nível médio do mar, por meio da relação:
-   \[
-   H = h - N \text{,}
-   \]
-   onde \( h \) é a altura elipsoidal e \( H \) é a altura ortométrica.
+%   \item \textbf{Transformação entre alturas:} \\
+%   A equação é usada para converter alturas geométricas (obtidas por GNSS em relação ao elipsoide) em alturas físicas (ortométricas ou dinâmicas), que se referem ao nível médio do mar, por meio da relação:
+%   \[
+%   H = h - N \text{,}
+%   \]
+%   onde \( h \) é a altura elipsoidal e \( H \) é a altura ortométrica.
 
-   \item \textbf{Avaliação de modelos geopotenciais:} \\
-   A anômala do potencial \( T \) é sensível à qualidade do modelo normal adotado. Assim, a equação de Bruns também serve para avaliar a fidelidade dos modelos de gravidade utilizados.
-\end{enumerate}
+%   \item \textbf{Avaliação de modelos geopotenciais:} \\
+%   A anômala do potencial \( T \) é sensível à qualidade do modelo normal adotado. Assim, a equação de Bruns também serve para avaliar a fidelidade dos modelos de gravidade utilizados.
+%\end{enumerate}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Explicar detalhadamente as relações físicas existentes entre os harmônicos de baixo grau e o cálculo do centro de massas e os momentos e produtos de inercia da Terra.}
 
-As componentes de baixo grau da expansão em harmônicos esféricos do potencial gravitacional da Terra contêm informações físicas fundamentais sobre a distribuição global de massa do planeta. Em particular, os coeficientes harmônicos dos graus \( \ell = 1 \) e \( \ell = 2 \) estão diretamente relacionados ao centro de massas da Terra e aos seus momentos e produtos de inércia principais. 
+As componentes de baixo grau da expansão em harmônicos esféricos do potencial gravitacional da Terra contêm informações físicas sobre a distribuição global de massa do planeta. Em particular, os coeficientes harmônicos dos graus \( \ell = 1 \) e \( \ell = 2 \) estão diretamente relacionados ao centro de massas da Terra e aos seus momentos e produtos de inércia principais. 
 
 Os termos de grau \( \ell = 1 \) da expansão harmônica esférica representam translações do sistema de coordenadas em relação ao centro de massa da Terra. Na forma geral do potencial gravitacional externo \( V \), expresso por harmônicos esféricos (para \( r > R \), com \( R \) sendo o raio de referência):
 
@@ -668,7 +664,7 @@ O potencial anômalo expressa, portanto, todas as irregularidades do campo de gr
 
 O Teorema de Clairaut estabelece uma relação entre a variação da gravidade com a latitude e a forma da Terra, assumida como um elipsoide de revolução em equilíbrio hidrostático, vinculando esse comportamento ao seu achatamento e à rotação do planeta.
 
-A Terra, sendo um corpo em rotação, não é uma esfera perfeita, mas sim ligeiramente oblata: seu raio equatorial é maior que o polar. Essa forma oblata, associada à força centrífuga causada pela rotação, faz com que a gravidade varie com a latitude — sendo menor no equador e maior nos polos. O Teorema de Clairaut quantifica essa variação, estabelecendo que, sob certas hipóteses razoáveis (massa distribuída de forma simétrica em torno do eixo de rotação, equilíbrio hidrostático e pequena excentricidade), a gravidade \( g \) em um ponto sobre a superfície da Terra é dada por:
+A Terra, sendo um corpo em rotação, não é uma esfera perfeita, mas sim ligeiramente oblata: seu raio equatorial é maior que o polar. Essa forma oblata, associada à força centrífuga causada pela rotação, faz com que a gravidade varie com a latitude, sendo menor no equador e maior nos polos. O Teorema de Clairaut quantifica essa variação, estabelecendo que, sob certas hipóteses razoáveis (massa distribuída de forma simétrica em torno do eixo de rotação, equilíbrio hidrostático e pequena excentricidade), a gravidade \( g \) em um ponto sobre a superfície da Terra é dada por:
 
 \[
 g(\phi) = g_e \left( 1 + \beta \sin^2 \phi \right) \text{,}
@@ -694,62 +690,314 @@ em que \( f = \frac{a - b}{a} \) é o achatamento do elipsoide, sendo \( a \) e 
 
 \section{Utilizando os parâmetros do elipsoide GRS80, determine o valor de gravidade normal para um ponto localizado na latitude \(0^\circ 0^\prime 5^{\prime\prime}\) e altitude 2850 metros.}
 
-Utilizando o elipsoide GRS80, cujos parâmetros são:
-\[
-a = 6378137\;\mathrm{m},\quad
-\gamma_e = 9.780325336\;\mathrm{m/s^2},
-\]  
-e o gradiente vertical de gravidade normal dado por (cf. citeturn0file10)
+
+
+\noindent
+As coordenadas geodésicas dadas são:
 
 \[
-\gamma_h \;=\;\gamma_\phi\;-\;2\,\frac{\gamma_e}{a}\,h\;+\;3\,\frac{\gamma_e}{a^2}\,h^2,
+\phi = 0^\circ\,0'\,5'' = \dfrac{5}{3600} = 0{,}00138889^\circ \text{,} \quad h = 2850 \; \text{m} \text{.}
 \]
 
-onde  
-- \(\phi=0^\circ\,0'\,5''=5/3600^\circ\approx1{,}3889\times10^{-3}{}^\circ\) (em radianos \(\phi\approx2{,}424\times10^{-5}\)),  
-- \(h=2850\;\mathrm{m}\),  
-- \(\gamma_\phi\) é a gravidade normal na latitude \(\phi\), e  
-- \(\gamma_e\) e \(a\) são, respectivamente, a gravidade e o raio equatorial do elipsoide,
+\noindent
+Primeiramente obtemos a latitude reduzida \(\beta\) no elipsoide de referência:
 
-temos:
-
-1. Cálculo de \(\gamma_\phi\) em \(\phi\approx2{,}424\times10^{-5}\) rad.  
-   Pelas fórmulas de Somigliana, para latitudes tão pequenas \(\sin^2\phi\approx\phi^2\sim10^{-9}\) e, portanto,  
-   \[
-   \gamma_\phi\;\approx\;\gamma_e\;=\;9{,}780325336\;\mathrm{m/s^2}.
-   \]
-
-2. Correção de altura.  
-   \[
-   \Delta\gamma
-   = -2\,\frac{\gamma_e}{a}\,h
-     +3\,\frac{\gamma_e}{a^2}\,h^2.
-   \]
-   Substituindo numéricos:
-   \[
-   -2\,\frac{9{,}780325336}{6\,378\,137}\times2850
-     \;=\;-0{,}0087467\;\mathrm{m/s^2},
-   \]
-   \[
-    3\,\frac{9{,}780325336}{(6\,378\,137)^2}\times(2850)^2
-     \;=\;0{,}0000059\;\mathrm{m/s^2}.
-   \]
-   Logo
-   \[
-   \Delta\gamma = -0{,}0087467 + 0{,}0000059 = -0{,}0087408\;\mathrm{m/s^2}.
-   \]
-
-3. Valor final de \(\gamma_h\).  
-   \[
-   \gamma_h = \gamma_\phi + \Delta\gamma
-            = 9{,}780325336 - 0{,}0087408
-            = 9{,}7715846\;\mathrm{m/s^2}.
-   \]
-
-Resposta:  
 \[
-\boxed{\gamma\bigl(0^\circ\,0'\,5'',\,h=2850\;\mathrm{m}\bigr)\approx9{,}7715846\;\mathrm{m/s^2}.}
+\begin{aligned}
+   \beta &= \tan^{-1}\left( \dfrac{b \cdot \sin \phi}{a \cdot \cos \phi} \right) \\
+         &= \tan^{-1}\left[ \dfrac{6356752{,}314140356 \cdot \sin(\frac{5}{3600})}{6378137 \cdot \cos(\frac{5}{3600})} \right] \\
+         &\approx 0{,}001384232207^\circ \text{.}
+\end{aligned}
 \]
+
+\noindent
+Calculam-se então os quadrados das distâncias entre o ponto e o plano equatorial (\(z_p^2\)), e entre o ponto e o eixo de rotação da Terra (\(r_p^2\)):
+
+\[
+\begin{aligned}
+   z_p^2 &= \left( b \cdot \sin\beta + h \cdot \sin\phi \right)^2 \\
+         &= \left[ 6356752{,}314140356 \cdot \sin(0{,}001384232207) + 2850 \cdot \sin\left(\frac{5}{3600}\right) \right]^2 \\
+         &= 23606{,}62284572807 \; \text{m}^2 \text{,} \\
+   r_p^2 &= \left( a \cdot \cos\beta + h \cdot \cos\phi \right)^2 \\
+         &= \left[6378137 \cdot \cos(0{,}001384232207) + 2850 \cdot \cos\left(\frac{5}{3600}\right)\right]^2 \\
+         &= 40716995070403{,}35 \; \text{m}^2 \text{.}
+\end{aligned}
+\]
+
+\noindent
+A partir das distâncias calculadas, obtêm-se os parâmetros auxiliares normalizados \(D\) e \(R\), definidos como:
+
+\[
+\begin{aligned}
+   D &= \dfrac{r_p^2 - z_p^2}{E^2} \\
+     &= \dfrac{40716995070403{,}35 - 23606{,}62284572807}{521854{,}009700248^2} \\
+     &\approx 149{,}51255724414438 \text{,} \\
+   R &= \dfrac{r_p^2 + z_p^2}{E^2} \\
+     &= \dfrac{40716995070403{,}35 + 23606{,}62284572807}{521854{,}009700248^2} \\
+     &\approx 149{,}51255741751115 \text{.}
+\end{aligned}
+\]
+
+\noindent
+Esses parâmetros são usados na definição do elipsoide auxiliar que passa exatamente pelo ponto de interesse. Utilizando os valores de \(D\) e \(R\), calcula-se o quadrado do cosseno da latitude reduzida \(\beta'\) no elipsoide auxiliar, por meio da seguinte expressão:
+
+\[
+\begin{aligned}
+\cos^2 \beta' &= \dfrac{1}{2} + \dfrac{R}{2} - \sqrt{ \dfrac{1}{4} + \dfrac{R^2}{4} - \dfrac{D}{2} } \\
+              &= \dfrac{1}{2} + \dfrac{149{,}51255741751115}{2} - \sqrt{ \dfrac{1}{4} + \dfrac{149{,}51255741751115^2}{4} - \dfrac{149{,}51255724414438}{2} } \\
+              &\approx 0{,}9999999994163176 \text{.}
+\end{aligned}
+\]
+
+\noindent
+Então, a latitude reduzida \(\beta'\) no elipsoide auxiliar é obtida a partir de:
+
+\[
+\begin{aligned}
+   \beta' &= \arccos\left( \sqrt{\cos^2 \beta'} \right) \\
+          &= \cos^{-1}\left( \sqrt{0{,}9999999994163176} \right) \\
+          &\approx 0{,}0013842385655864757^\circ \text{,}
+\end{aligned}
+\]
+
+\noindent
+e coordenada radial modificada \(b'\), correspondente ao semi-eixo menor do elipsoide auxiliar, é obtida por:
+
+\[
+\begin{aligned}
+   b' &= \sqrt{r_p^2 + z_p^2 - E^2 \cdot \cos^2 \beta'} \\
+      &= \sqrt{40716995070403{,}35 + 23606{,}62284572807 - 521854{,}009700248^2 \cdot 0{,}9999999994163176} \\
+     &\approx 6359611{,}897492543 \; \text{m} \text{.}
+\end{aligned}
+\]
+
+
+\noindent
+Com isso, o fator de normalização \(W\) pode ser calculado da seguinte forma:
+
+\[
+\begin{aligned}
+   W &= \sqrt{\dfrac{b'^2 + E^2 \cdot \sin^2\beta'}{b'^2 + E^2}} \\
+     &= \sqrt{\dfrac{6359611{,}897492543^2 + 521854{,}009700248^2 \cdot (1 - 0{,}9999999994163176)}{6359611{,}897492543^2 + 521854{,}009700248^2}} \\
+     &\approx 0{,}9966501886784984 \text{.}
+\end{aligned}
+\]
+
+\noindent
+Os termos auxiliares \(q_0\) e \(q'\) são:
+
+\[
+\begin{aligned}
+   q_0
+   &= \tfrac12\Bigl[\bigl(1 + 3\,\tfrac{b^2}{E^2}\bigr)\,\tan^{-1}\!\bigl(\tfrac{E}{b}\bigr)
+   -\;3\,\tfrac{b}{E}\Bigr]\\
+   &= \tfrac12\Bigl[(1 + 3\,(6356752.314100/521854.0096752260)^2)\,\arctan(521854.0096752260/6356752.314100) \\
+   &\quad -\;3\,(6356752.314100/521854.0096752260)\Bigr]\\
+   &\approx 0.001931851417009556,\\
+   q'
+   &= 3\Bigl(1 + \tfrac{z'^2}{E^2}\Bigr)\Bigl[\,1 
+   -\tfrac{b'}{E}\,\tan^{-1}\!\bigl(\tfrac{E}{b'}\bigr)\Bigr]
+   -1\\
+   &= 3\Bigl(1 + (154.679521047945351/521854.0096752260)^2\Bigr)
+   \Bigl[\,1 \\
+   &\quad - (6378874.4995804736/521854.0096752260)\,\arctan(521854.0096752260/6378874.4995804736)\Bigr]
+   -1\\
+   &\approx -0.991302343874061.
+\end{aligned}
+\]
+
+\noindent
+Agora, para facilitar a equação pode ser escrita como:
+
+\[
+\gamma_h = \frac{1}{W} \left( T_1 + T_2 - T_3 \right)
+\]
+
+\noindent
+em que os termos \(T_1\), \(T_2\) e \(T_3\) são calculados como segue.
+
+\[
+\begin{aligned}
+   T_1 &= \frac{G\,m}{b'^2 + E^2}
+   = \frac{3.986005\times10^{14}}{(6378874.4995804736)^2 + (521854.0096752260)^2}
+   \approx 9.730410897789502,\\[6pt]
+   T_2 &= \frac{\omega^2\,a^2\,E\,q'}{(b'^2 + E^2)\,q_0}
+   \Bigl(\tfrac{\sin^2\beta'}{2} - \tfrac{1}{6}\Bigr)\\
+   &=\frac{(7.292115\times10^{-5})^2\,(6378137.0)^2\,(521854.0096752260)\,(-0.991302343874061)}
+   {\bigl((6378874.4995804736)^2 + (521854.0096752260)^2\bigr)\,(0.001931851417009556)}
+   \Bigl(\tfrac{0.6203072260908323}{2} - \tfrac{1}{6}\Bigr)\\
+   &\approx 0.017531683839841,\\[6pt]
+   T_3 &= \omega^2\,b'\,\cos^2\beta'
+   = (7.292115\times10^{-5})^2\,(6378874.4995804736)\,(0.6164425097931949)^2
+   \approx 0.012292746194752.
+\end{aligned}
+\]
+
+
+
+
+
+\noindent
+Somando os termos e aplicando o fator \(\frac{1}{W}\), temos:
+
+\[
+\begin{aligned}
+   \gamma_h &= \frac{1}{W}\,\bigl(T_1 + T_2 - T_3\bigr) \\
+   &= 1.006292682703143022 \,\bigl(9.730410897789502 + 0.017531683839841 - 0.012292746194752\bigr)\\
+   &= 1.006292682703143022 \times 9.735649835434591 \\
+   &\approx \boxed{9.771532353715031\;\mathrm{m/s^2}} \\
+   &= 977\,153.2353715031\;\mathrm{mGal}.
+\end{aligned}
+\]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+A formula:
+
+\[
+\gamma_h = \dfrac{1}{W} \left\{ \dfrac{G m}{{b'}^2 + E^2} + \dfrac{\omega^2 a^2 E q'}{({b'}^2 + E^2) q_0} \left(\dfrac{\sin^2 \beta'}{2} - \dfrac{1}{6} \right) - \omega^2 b' \cos^2 \beta' \right\} \text{,}
+\]
+
+\noindent
+como apresentada por Li \& Gotze (2001), fornece uma forma analítica para o cálculo da gravidade normal \(\gamma_h\) em qualquer ponto acima ou abaixo da superfície de um elipsoide de revolução, considerando os efeitos do achatamento e da rotação da Terra.
+
+
+
+Para determinar o valor de \(\gamma_h\) em um ponto localizado na latitude geodésica \(\phi = 0^\circ 0' 5''\) e altitude elipsoidal \(h = 2850\;\text{m}\), foram utilizados os parâmetros do elipsoide de referência GRS80, listados na Tabela~\ref{tab:grs80}.
+
+\begin{table}[h]
+\centering
+\caption{Parâmetros fundamentais do elipsoide GRS80.}
+\label{tab:grs80}
+\begin{tabular}{ll}
+\toprule
+Grandeza & Valor \\
+\midrule
+Semieixo maior (\(a\)) & \(6\,378\,137.0\;\text{m}\) \\
+Semieixo menor (\(b\)) & \(6\,356\,752.3141\;\text{m}\) \\
+Gravidade geocêntrica (\(Gm\)) & \(3.986005 \times 10^{14}\;\text{m}^3/\text{s}^2\) \\
+Velocidade angular da Terra (\(\omega\)) & \(7.292115 \times 10^{-5}\;\text{rad/s}\) \\
+Raio de curvatura polar (\(c = a^2/b\)) & \(6\,399\,593.626\;\text{m}\) \\
+Excentricidade linear (\(E = \sqrt{a^2 - b^2}\)) & \(521\,854.0097\;\text{m}\) \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\noindent
+A latitude reduzida \(\beta\) é obtida por:
+\[
+\tan\beta \;=\;\frac{b}{a}\,\tan\phi
+\quad\Longrightarrow\quad
+\beta \;=\;\arctan\!\Bigl(\tfrac{6356752.314100}{6378137}\,\tan(5''\times\pi/648000)\Bigr)
+\approx 0.000024155649381637128\;\mathrm{rad}
+\]
+
+\noindent
+Com isso, as componentes do vetor posição do ponto são:
+
+\[
+\begin{aligned}
+   r' &= a\cos\beta + h\cos\phi
+   =\;6378137\cos(0.000024155649381637128)+2850\cos(5''\times\pi/648000)\\
+   &\approx 6380987.021747859048170\;\mathrm{m},\\
+   z' &= c\sin\beta + h\sin\phi
+   =\;\tfrac{a^2}{b}\sin\beta + 2850\sin(5''\times\pi/648000)\\
+   &\approx 154.679521047945351\;\mathrm{m}.
+\end{aligned}
+\]
+
+\noindent
+Calculando \(r''^2 = r'^2 + z'^2\) e \(d''^2 = r'^2 - z'^2\), obtém-se os parâmetros adimensionais:
+
+\[
+\begin{aligned}
+   r''^2 &= r'^2 + z'^2 
+   = (6380987.021747859048170)^2 + (154.679521047945351)^2 
+   \approx 4.071513901439007243\times10^{13},\\
+   d''^2 &= r'^2 - z'^2 
+   \approx 4.071513899911626613\times10^{13},\\
+   R &= \frac{r''^2}{E^2}
+   = \frac{4.071513901439007243\times10^{13}}{(521854.009675226005138)^2}
+   \approx 149.512594065207032563,\\
+   D &= \frac{d''^2}{E^2}
+   \approx 149.512594036756723816.
+\end{aligned}
+\]
+
+\noindent
+A latitude reduzida modificada \(\beta'\) é determinada por:
+
+\[
+\begin{aligned}
+   \cos\beta' &= \sqrt{\tfrac12 + \tfrac{R}{2} - \sqrt{\tfrac14 + \tfrac{R^2}{4} - \tfrac{D}{2}}}
+   \approx 0.616442509793194871,\\
+   \sin^2\beta' &= 1 - (\cos\beta')^2
+   \approx 0.620307226090832328.
+\end{aligned}
+\]
+
+\noindent
+A coordenada radial modificada é:
+\[
+\begin{aligned}
+   b' &= \sqrt{\,r''^2 \;-\;E^2\cos^2\beta'\,} \\
+   &= \sqrt{4.071513901439007243\times10^{13} - (521854.009675226005138)^2\,(0.616442509793194871)^2} \\
+   &\approx 6378874.499580473620414\;\mathrm{m} \text{.}
+\end{aligned}
+\]
+
+
+
+\noindent
+Este resultado coincide com o obtido por meio da biblioteca \texttt{boule}, que implementa a fórmula de Li \& Gotze (2001), validando a consistência do cálculo manual com a referência computacional.
+
+\begin{lstlisting}[language=Python, caption={Cálculo da gravidade normal com a biblioteca \texttt{boule} 
+para o modelo GRS80}]
+
+Obtive 977153.24 no python
+
+import boule as bl
+
+h = 2850                       # altura elipsoidal em metros
+lat = 5 / 3600                # latitude geodésica em graus decimais
+
+gamma = bl.GRS80.normal_gravity(latitude=lat, height=h)
+print(f"{gamma:.2f} mGal")
+
+977153.24 mGal
+
+Eu preciso demonstrar como se obtêm o resultado por uma resolução manual 
+\end{lstlisting}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
