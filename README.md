@@ -1,44 +1,39 @@
+# Métodos Físicos em Geodésia
 
----
+Este repositório reúne anotações, códigos e resoluções de exercícios desenvolvidos ao longo da disciplina **Métodos Físicos em Geodésia**, cursada no Programa de Pós-Graduação em Ciências Geodésicas da Universidade Federal do Paraná (UFPR).
 
-# MÉTODOS FÍSICOS EM GEODÉSIA
+## Estrutura do Repositório
 
-by
-Eros Kerouak Cordeiro Pereira 
+- `notebooks/` — Cadernos Jupyter com cálculos, implementações e visualizações.
+- `scripts/` — Scripts Python utilizados para automatizar cálculos e análises.
+- `exercicios/` — Resoluções detalhadas dos questionários e listas de exercícios.
+- `relatorios/` — Relatórios, artigos e resumos relacionados à disciplina.
+- `referencias/` — Materiais de apoio e artigos utilizados como referência.
 
+## Conteúdo Abordado
 
-This repository contains the data and source code used to produce the results
-presented in:
+- Fundamentos de Geodésia Física
+- Teoria do Potencial
+- Gravidade Normal e Anomalias
+- Equação Fundamental da Geodésia Física
+- Equações de Laplace e de Poisson
+- Métodos de Cálculo Gravitacional
+- Aplicações práticas em modelagem geodésica
 
-> Reference of the paper and/or preprint.
+## Ferramentas Utilizadas
 
-|  | Info |
-|-:|:-----|
-| Version of record | https://doi.org/JOURNAL_DOI |
-| Open-access version on EarthArXiv | https://doi.org/EARTHARXIV_DOI |
-| Archive of this repository | https://doi.org/FIGSHARE_ZENODO_DOI |
-| Reproducing our results | [`REPRODUCING.md`](REPRODUCING.md) |
+- [Python](https://www.python.org/) (NumPy, SciPy, Xarray, Matplotlib)
+- [Google Colab](https://colab.research.google.com/)
+- [LaTeX](https://www.latex-project.org/) (via Overleaf para redação de relatórios)
 
-## About
+## Objetivo
 
-A little bit about this paper, how it came about, and what are the main
-contributions. Also include a summary figure or graphical abstract for this
-paper.
+Organizar e documentar o processo de aprendizagem e a aplicação prática dos conceitos estudados, visando tanto a consolidação do conhecimento quanto a futura consulta e reaproveitamento em projetos acadêmicos e profissionais.
 
-## Abstract
+## Observações
 
-The paper abstract. Paste it here once it's written.
+Este repositório é de uso acadêmico. Alguns materiais e exercícios foram elaborados com base em conteúdos ministrados em aula e referências bibliográficas clássicas de Geodésia Física.
 
-## License
+## Licença
 
-All Python source code (including `.py` and `.ipynb` files) is made available
-under the MIT license. You can freely use and modify the code, without
-warranty, so long as you provide attribution to the authors. See
-`LICENSE-MIT.txt` for the full license text.
-
-The manuscript text (including all LaTeX files), figures, and data/models
-produced as part of this research are available under the [Creative Commons
-Attribution 4.0 License (CC-BY)][cc-by]. See `LICENSE-CC-BY.txt` for the full
-license text.
-
-[cc-by]: https://creativecommons.org/licenses/by/4.0/
+[MIT License](LICENSE)
