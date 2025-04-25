@@ -694,7 +694,7 @@ A formula:
 
 
 \[
-\gamma_h = 
+\gamma = 
 \frac{1}{W}
 \left[
 \underbrace{
@@ -718,11 +718,11 @@ A formula:
 
 
 \noindent
-como apresentada por Li \& Gotze (2001), fornece uma forma analítica para o cálculo da gravidade normal \(\gamma_h\) em qualquer ponto acima ou abaixo da superfície de um elipsoide de revolução, considerando os efeitos do achatamento e da rotação da Terra.
+como apresentada por Li \& Gotze (2001), fornece uma forma analítica para o cálculo da gravidade normal \(\gamma\) em qualquer ponto acima ou abaixo da superfície de um elipsoide de revolução, considerando os efeitos do achatamento e da rotação da Terra.
 
 
 
-Para determinar o valor de \(\gamma_h\) em um ponto localizado na latitude geodésica \(\phi = 0^\circ 0' 5''\) e altitude elipsoidal \(h = 2850\;\text{m}\), foram utilizados os parâmetros do elipsoide de referência GRS80, listados na Tabela~\ref{tab:grs80}.
+Para determinar o valor de \(\gamma\) em um ponto localizado na latitude geodésica \(\phi = 0^\circ 0' 5''\) e altitude elipsoidal \(h = 2850\;\text{m}\), foram utilizados os parâmetros do elipsoide de referência GRS80, listados na Tabela~\ref{tab:grs80}.
 
 \begin{table}[h]
 \centering
@@ -732,11 +732,11 @@ Para determinar o valor de \(\gamma_h\) em um ponto localizado na latitude geod�
 \toprule
 Grandeza & Valor \\
 \midrule
-Semieixo maior (\(a\)) & \(6\,378\,137.0\;\text{m}\) \\
-Semieixo menor (\(b\)) & \(6\,356\,752.3141\;\text{m}\) \\
-Gravidade geocêntrica (\(Gm\)) & \(3.986005 \times 10^{14}\;\text{m}^3/\text{s}^2\) \\
-Velocidade angular da Terra (\(\omega\)) & \(7.292115 \times 10^{-5}\;\text{rad/s}\) \\
-Excentricidade linear (\(E = \sqrt{a^2 - b^2}\)) & \(521\,854.0097\;\text{m}\) \\
+Semieixo maior (\(a\)) & \(6\,378\,137{,}0\;\text{m}\) \\
+Semieixo menor (\(b\)) & \(6\,356\,752{,}3141\;\text{m}\) \\
+Gravidade geocêntrica (\(Gm\)) & \(3{,}986005 \times 10^{14}\;\text{m}^3/\text{s}^2\) \\
+Velocidade angular da Terra (\(\omega\)) & \(7{,}292115 \times 10^{-5}\;\text{rad/s}\) \\
+Excentricidade linear (\(E = \sqrt{a^2 - b^2}\)) & \(521\,854{,}0097\;\text{m}\) \\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -745,7 +745,7 @@ Excentricidade linear (\(E = \sqrt{a^2 - b^2}\)) & \(521\,854.0097\;\text{m}\) \
 As coordenadas geodésicas dadas são:
 
 \[
-\phi = 0^\circ\,0'\,5'' = \dfrac{5}{3600} = 0{,}00138889^\circ \text{,} \quad h = 2850 \; \text{m} \text{.}
+\phi = 0^\circ\,0'\,5'' = \dfrac{5}{3\,600} = 0{,}00138889^\circ \text{,} \quad h = 2\,850 \; \text{m} \text{.}
 \]
 
 \noindent
@@ -754,7 +754,7 @@ Primeiramente obtemos a latitude reduzida \(\beta\) no elipsoide de referência:
 \[
 \begin{aligned}
    \beta &= \tan^{-1}\left( \dfrac{b \cdot \sin \phi}{a \cdot \cos \phi} \right) \\
-         &= \tan^{-1}\left[ \dfrac{6356752{,}314140356 \cdot \sin\left(\tfrac{5}{3600}\right)}{6378137 \cdot \cos\left(\tfrac{5}{3600}\right)} \right] \\
+         &= \tan^{-1}\left[ \dfrac{6\,356\,752{,}314140356 \cdot \sin\left(\tfrac{5}{3\,600}\right)}{6\,378\,137 \cdot \cos\left(\tfrac{5}{3\,600}\right)} \right] \\
          &\approx 0{,}001384232207^\circ \text{.}
 \end{aligned}
 \]
@@ -767,11 +767,11 @@ Calculam-se então os quadrados das distâncias entre o ponto e o plano equatori
 \[
 \begin{aligned}
    z_p^2 &= \left( b \cdot \sin\beta + h \cdot \sin\phi \right)^2 \\
-         &= \left[ 6356752{,}314140356 \cdot \sin(0{,}001384232207) + 2850 \cdot \sin\left(\tfrac{5}{3600}\right) \right]^2 \\
-         &= 23606{,}62284572807 \; \text{m}^2 \text{,} \\
+         &= \left[ 6\,356\,752{,}314140356 \cdot \sin(0{,}001384232207) + 2\,850 \cdot \sin\left(\tfrac{5}{3\,600}\right) \right]^2 \\
+         &= 23\,606{,}62284572807 \; \text{m}^2 \text{,} \\
    r_p^2 &= \left( a \cdot \cos\beta + h \cdot \cos\phi \right)^2 \\
-         &= \left[6378137 \cdot \cos(0{,}001384232207) + 2850 \cdot \cos\left(\tfrac{5}{3600}\right)\right]^2 \\
-         &= 40716995070403{,}35 \; \text{m}^2 \text{.}
+         &= \left[6\,378\,137 \cdot \cos(0{,}001384232207) + 2\,850 \cdot \cos\left(\tfrac{5}{3\,600}\right)\right]^2 \\
+         &= 40\,716\,995\,070\,403{,}35 \; \text{m}^2 \text{.}
 \end{aligned}
 \]
 
@@ -782,10 +782,10 @@ A partir das distâncias calculadas, obtêm-se os parâmetros auxiliares normali
 \[
 \begin{aligned}
    D &= \dfrac{r_p^2 - z_p^2}{E^2} \\
-     &= \dfrac{40716995070403{,}35 - 23606{,}62284572807}{521854{,}009700248^2} \\
+     &= \dfrac{40\,716\,995\,070\,403{,}35 - 23\,606{,}62284572807}{521\,854{,}009700248^2} \\
      &\approx 149{,}51255724414438 \text{,} \\
    R &= \dfrac{r_p^2 + z_p^2}{E^2} \\
-     &= \dfrac{40716995070403{,}35 + 23606{,}62284572807}{521854{,}009700248^2} \\
+     &= \dfrac{40\,716\,995\,070\,403{,}35 + 23\,606{,}62284572807}{521\,854{,}009700248^2} \\
      &\approx 149{,}51255741751115 \text{.}
 \end{aligned}
 \]
@@ -820,8 +820,8 @@ e coordenada radial modificada \(b'\), correspondente ao semi-eixo menor do elip
 \[
 \begin{aligned}
    b' &= \sqrt{r_p^2 + z_p^2 - E^2 \cdot \cos^2 \beta'} \\
-      &= \sqrt{40716995070403{,}35 + 23606{,}62284572807 - 521854{,}009700248^2 \cdot 0{,}9999999994163176} \\
-     &\approx 6359611{,}897492543 \; \text{m} \text{.}
+      &= \sqrt{40\,716\,995\,070\,403{,}35 + 23\,606{,}62284572807 - 521\,854{,}009700248^2 \cdot 0{,}9999999994163176} \\
+     &\approx 6\,359\,611{,}897492543 \; \text{m} \text{.}
 \end{aligned}
 \]
 
@@ -836,7 +836,7 @@ Calcula-se os termos auxiliares \(q_0\) e \(q'\), que correspondem a funções q
 \begin{aligned}
    q_0
    &= \dfrac{1}{2} \left[\left(1 + \dfrac{3 \cdot b^2}{E^2}\right) \cdot \tan^{-1}\!\left(\dfrac{E}{b}\right) - \dfrac{3 \cdot b}{E}\right]\\
-   &= \dfrac{1}{2} \left[\left(1 + 3 \cdot \dfrac{6356752{,}314140356^2}{521854{,}009700248^2}\right) \cdot \tan^{-1}\!\left(\dfrac{521854{,}009700248}{6356752{,}314140356}\right) - 3 \cdot \dfrac{6356752{,}314140356}{521854{,}009700248}\right]\\
+   &= \dfrac{1}{2} \left[\left(1 + 3 \cdot \dfrac{6\,356\,752{,}314140356^2}{521\,854{,}009700248^2}\right) \cdot \tan^{-1}\!\left(\dfrac{521\,854{,}009700248}{6\,356\,752{,}314140356}\right) - 3 \cdot \dfrac{6\,356\,752{,}314140356}{521\,854{,}009700248}\right]\\
    &\approx 0{,}00007334625840726972 \text{,}
 \end{aligned}
 \]
@@ -845,37 +845,41 @@ Calcula-se os termos auxiliares \(q_0\) e \(q'\), que correspondem a funções q
 \[
 \begin{aligned}
    q'&= 3\left(1 + \dfrac{b'^2}{E^2}\right)\left[1 -\dfrac{b'}{E} \cdot \tan^{-1}\left(\dfrac{E}{b'}\right)\right] -1\\
-     &= 3\left(1 + \dfrac{6359611{,}897492543^2}{521854{,}009700248^2}\right)\left[1 -\dfrac{6359611{,}897492543}{521854.009700248} \cdot \tan^{-1}\left(\dfrac{521854.009700248}{6359611{,}897492543}\right)\right] -1\\
+     &= 3\left(1 + \dfrac{6\,359\,611{,}897492543^2}{521\,854{,}009700248^2}\right)\left[1 -\dfrac{6\,359\,611{,}897492543}{521\,854.009700248} \cdot \tan^{-1}\left(\dfrac{521\,854.009700248}{6\,359\,611{,}897492543}\right)\right] -1\\
      &\approx 0{,}002685631457639115 \text{.}
 \end{aligned}
 \]
 
 \noindent
-Agora, para facilitar a equação pode ser escrita como:
+Agora, os termos \(T_1\), \(T_2\), \(T_3\) e \(T_4\) podem ser calculados como segue.
 
-\[
-\gamma_h = \frac{1}{W} \left( T_1 + T_2 \cdot T_3 - T_4 \right)
-\]
+\begin{flushleft}
+   \begin{align*}
+      T_1 &= \dfrac{Gm}{b'^2 + E^2} \\
+          &= \dfrac{3{,}986005 \times 10^{14}}{6\,359\,611{,}897492543^2 + 521\,854{,}009700248^2} \\
+          &\approx 9{,}789536263128698 \text{,} \\
+   \\
+      T_2 &= \dfrac{\omega^2 \cdot a^2 \cdot E \cdot q'}{(b'^2 + E^2)q_0} \\
+          &= \dfrac{(7{,}292115 \times 10^{-5})^2 \cdot 6\,378\,137^2 \cdot 521\,854{,}009700248 \cdot 0{,}002685631457639115}{(6\,359\,611{,}897492543^2 + 521\,854{,}009700248^2) \cdot 7{,}334625840726972 \times 10^{-5}} \\
+          &\approx 0{,}10151645913370078 \text{,} 
+   \end{align*}
+   \end{flushleft}
 
-\noindent
-em que os termos \(T_1\), \(T_2\), \(T_3\) e \(T_4\) são calculados como segue.
 
-\[
-\begin{aligned}
-   T_1 &= \dfrac{Gm}{b'^2 + E^2} \\
-       &= \dfrac{398600500000000}{6359611{,}897492543^2 + 521854{,}009700248^2} \\
-       &\approx 9{,}789536263128698 \text{,}  \\[10pt]
-   T_2 &= \dfrac{\omega^2 \cdot a^2 \cdot E \cdot q'}{(b'^2 + E^2)q_0} \\
-       &= \dfrac{(7{,}292115 \times 10^{-5})^2 \cdot 6378137^2 \cdot 521854{,}009700248 \cdot 0{,}002685631457639115}{(6359611{,}897492543^2 + 521854{,}009700248^2)7.334625840726972 \times 10^{-5}} \\
-       &\approx 0{,}10151645913370078 \text{,} \\[10pt]
-   T_3 &= \dfrac{\sin^2\beta'}{2} - \dfrac{1}{6}\\
-       &= \dfrac{5{,}836824357174919 \times 10^{-10}}{2} - \dfrac{1}{6}\\
-       &\approx -0{,}16666666637482544 \text{,} \\[10pt]
-   T_4 &= \omega^2 \cdot b' \cdot \cos^2\beta' \\
-       &= (7{,}292115 \times 10^{-5})^2 \cdot 6359611{,}897492543 \cdot 0{,}9999999994163176 \\
-       &\approx 0.033817198833632274 \text{,}
-\end{aligned}
-\]
+   \begin{flushleft}
+      \begin{align*}
+         T_3 &= \dfrac{\sin^2\beta'}{2} - \dfrac{1}{6} \\
+             &= \dfrac{1 - 0{,}9999999994163176}{2} - \dfrac{1}{6} \\
+             &\approx -0{,}16666666637482544 \text{,} \\
+      \\
+         T_4 &= \omega^2 \cdot b' \cdot \cos^2\beta' \\
+             &= (7{,}292115 \times 10^{-5})^2 \cdot 6\,359\,611{,}897492543 \cdot 0{,}9999999994163176 \\
+             &\approx 0{,}033817198833632274 \text{.}
+      \end{align*}
+\end{flushleft}
+   
+   
+
 
 
 
@@ -886,7 +890,7 @@ O fator de normalização \(W\) pode ser calculado da seguinte forma:
 \[
 \begin{aligned}
    W &= \sqrt{\dfrac{b'^2 + E^2 \cdot \sin^2\beta'}{b'^2 + E^2}} \\
-     &= \sqrt{\dfrac{6359611{,}897492543^2 + 521854{,}009700248^2 \cdot 5.836824357174919 \times 10^{-10}}{6359611{,}897492543^2 + 521854{,}009700248^2}} \\
+     &= \sqrt{\dfrac{6\,359\,611{,}897492543^2 + 521\,854{,}009700248^2 \cdot (1 - 0{,}9999999994163176)}{6\,359\,611{,}897492543^2 + 521\,854{,}009700248^2}} \\
      &\approx 0{,}99665018867654 \text{.}
 \end{aligned}
 \]
@@ -897,8 +901,8 @@ Somando os termos e aplicando o fator \(\frac{1}{W}\), temos:
 
 \[
 \begin{aligned}
-   \gamma &= \dfrac{1}{W} \left( T_1 + T_2 \cdot T_3 - T_4 \right) \\
-          &= \dfrac{ 9.789536263128698 + 0.10151645913370078 \cdot (-0.16666666637482544) - 0.033817198833632274}{0{,}99665018867654} \\
+   \gamma &= \dfrac{1}{W} \left( T_1 + T_2 \cdot T_3 - T_4 \right) \\[6pt]
+          &= \dfrac{ 9{,}789536263128698 + 0{,}10151645913370078 \cdot (-0{,}16666666637482544) - 0{,}033817198833632274}{0{,}99665018867654} \\
           &= 9{,}7715324\;\mathrm{m/s^2} \\
           &= 9{,}77153{,}24\;\mathrm{mGal} \text{.}
 \end{aligned}
@@ -910,9 +914,7 @@ Somando os termos e aplicando o fator \(\frac{1}{W}\), temos:
 Este resultado coincide com o obtido por meio da biblioteca \texttt{boule}, que implementa a fórmula de Li \& Gotze (2001), validando a consistência do cálculo manual com a referência computacional.
 
 \begin{lstlisting}[language=Python, caption={Cálculo da gravidade normal com a biblioteca \texttt{boule} 
-para o modelo GRS80}]
-
-Obtive 977153.24 no python
+para o modelo GRS80 (Valor obtido: 977153.24 mGal)}]
 
 import boule as bl
 
@@ -921,10 +923,6 @@ lat = 5 / 3600                # latitude geodésica em graus decimais
 
 gamma = bl.GRS80.normal_gravity(latitude=lat, height=h)
 print(f"{gamma:.2f} mGal")
-
-977153.24 mGal
-
-Eu preciso demonstrar como se obtêm o resultado por uma resolução manual 
 \end{lstlisting}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
