@@ -690,7 +690,56 @@ em que \( f = \frac{a - b}{a} \) é o achatamento do elipsoide, sendo \( a \) e 
 
 \section{Utilizando os parâmetros do elipsoide GRS80, determine o valor de gravidade normal para um ponto localizado na latitude \(0^\circ 0^\prime 5^{\prime\prime}\) e altitude 2850 metros.}
 
+A formula:
 
+
+\[
+\gamma_h = 
+\frac{1}{W}
+\left[
+\underbrace{
+\frac{Gm}{b'^2 + E^2}
+}_{T_1}
++
+\underbrace{
+\frac{\omega^2 a^2 E q'}{(b'^2 + E^2) q_0}
+}_{T_2}
+\underbrace{
+\left( \frac{\sin^2 \beta'}{2} - \frac{1}{6} \right)
+}_{T_3}
+-
+\underbrace{
+\omega^2 b' \cos^2 \beta'
+}_{T_4}
+\right]
+\text{,}
+\]
+
+
+
+\noindent
+como apresentada por Li \& Gotze (2001), fornece uma forma analítica para o cálculo da gravidade normal \(\gamma_h\) em qualquer ponto acima ou abaixo da superfície de um elipsoide de revolução, considerando os efeitos do achatamento e da rotação da Terra.
+
+
+
+Para determinar o valor de \(\gamma_h\) em um ponto localizado na latitude geodésica \(\phi = 0^\circ 0' 5''\) e altitude elipsoidal \(h = 2850\;\text{m}\), foram utilizados os parâmetros do elipsoide de referência GRS80, listados na Tabela~\ref{tab:grs80}.
+
+\begin{table}[h]
+\centering
+\caption{Parâmetros fundamentais do elipsoide GRS80.}
+\label{tab:grs80}
+\begin{tabular}{ll}
+\toprule
+Grandeza & Valor \\
+\midrule
+Semieixo maior (\(a\)) & \(6\,378\,137.0\;\text{m}\) \\
+Semieixo menor (\(b\)) & \(6\,356\,752.3141\;\text{m}\) \\
+Gravidade geocêntrica (\(Gm\)) & \(3.986005 \times 10^{14}\;\text{m}^3/\text{s}^2\) \\
+Velocidade angular da Terra (\(\omega\)) & \(7.292115 \times 10^{-5}\;\text{rad/s}\) \\
+Excentricidade linear (\(E = \sqrt{a^2 - b^2}\)) & \(521\,854.0097\;\text{m}\) \\
+\bottomrule
+\end{tabular}
+\end{table}
 
 \noindent
 As coordenadas geodésicas dadas são:
@@ -705,7 +754,7 @@ Primeiramente obtemos a latitude reduzida \(\beta\) no elipsoide de referência:
 \[
 \begin{aligned}
    \beta &= \tan^{-1}\left( \dfrac{b \cdot \sin \phi}{a \cdot \cos \phi} \right) \\
-         &= \tan^{-1}\left[ \dfrac{6356752{,}314140356 \cdot \sin(\frac{5}{3600})}{6378137 \cdot \cos(\frac{5}{3600})} \right] \\
+         &= \tan^{-1}\left[ \dfrac{6356752{,}314140356 \cdot \sin\left(\tfrac{5}{3600}\right)}{6378137 \cdot \cos\left(\tfrac{5}{3600}\right)} \right] \\
          &\approx 0{,}001384232207^\circ \text{.}
 \end{aligned}
 \]
@@ -713,19 +762,22 @@ Primeiramente obtemos a latitude reduzida \(\beta\) no elipsoide de referência:
 \noindent
 Calculam-se então os quadrados das distâncias entre o ponto e o plano equatorial (\(z_p^2\)), e entre o ponto e o eixo de rotação da Terra (\(r_p^2\)):
 
+
+
 \[
 \begin{aligned}
    z_p^2 &= \left( b \cdot \sin\beta + h \cdot \sin\phi \right)^2 \\
-         &= \left[ 6356752{,}314140356 \cdot \sin(0{,}001384232207) + 2850 \cdot \sin\left(\frac{5}{3600}\right) \right]^2 \\
+         &= \left[ 6356752{,}314140356 \cdot \sin(0{,}001384232207) + 2850 \cdot \sin\left(\tfrac{5}{3600}\right) \right]^2 \\
          &= 23606{,}62284572807 \; \text{m}^2 \text{,} \\
    r_p^2 &= \left( a \cdot \cos\beta + h \cdot \cos\phi \right)^2 \\
-         &= \left[6378137 \cdot \cos(0{,}001384232207) + 2850 \cdot \cos\left(\frac{5}{3600}\right)\right]^2 \\
+         &= \left[6378137 \cdot \cos(0{,}001384232207) + 2850 \cdot \cos\left(\tfrac{5}{3600}\right)\right]^2 \\
          &= 40716995070403{,}35 \; \text{m}^2 \text{.}
 \end{aligned}
 \]
 
 \noindent
 A partir das distâncias calculadas, obtêm-se os parâmetros auxiliares normalizados \(D\) e \(R\), definidos como:
+
 
 \[
 \begin{aligned}
@@ -754,7 +806,7 @@ Então, a latitude reduzida \(\beta'\) no elipsoide auxiliar é obtida a partir 
 
 \[
 \begin{aligned}
-   \beta' &= \arccos\left( \sqrt{\cos^2 \beta'} \right) \\
+   \beta' &= \cos^{-1}\left( \sqrt{\cos^2 \beta'} \right) \\
           &= \cos^{-1}\left( \sqrt{0{,}9999999994163176} \right) \\
           &\approx 0{,}0013842385655864757^\circ \text{,}
 \end{aligned}
@@ -762,6 +814,8 @@ Então, a latitude reduzida \(\beta'\) no elipsoide auxiliar é obtida a partir 
 
 \noindent
 e coordenada radial modificada \(b'\), correspondente ao semi-eixo menor do elipsoide auxiliar, é obtida por:
+
+
 
 \[
 \begin{aligned}
@@ -771,38 +825,28 @@ e coordenada radial modificada \(b'\), correspondente ao semi-eixo menor do elip
 \end{aligned}
 \]
 
-
 \noindent
-Com isso, o fator de normalização \(W\) pode ser calculado da seguinte forma:
+Calcula-se os termos auxiliares \(q_0\) e \(q'\), que correspondem a funções que descrevem, respectivamente, a distribuição do potencial gravitacional no elipsoide de referência e no elipsoide auxiliar ajustado ao ponto de interesse.
 
-\[
-\begin{aligned}
-   W &= \sqrt{\dfrac{b'^2 + E^2 \cdot \sin^2\beta'}{b'^2 + E^2}} \\
-     &= \sqrt{\dfrac{6359611{,}897492543^2 + 521854{,}009700248^2 \cdot (1 - 0{,}9999999994163176)}{6359611{,}897492543^2 + 521854{,}009700248^2}} \\
-     &\approx 0{,}9966501886784984 \text{.}
-\end{aligned}
-\]
+%\left(\tfrac{5}{3600}\right)
 
-\noindent
-Os termos auxiliares \(q_0\) e \(q'\) são:
+
 
 \[
 \begin{aligned}
    q_0
-   &= \tfrac12\Bigl[\bigl(1 + 3\,\tfrac{b^2}{E^2}\bigr)\,\tan^{-1}\!\bigl(\tfrac{E}{b}\bigr)
-   -\;3\,\tfrac{b}{E}\Bigr]\\
-   &= \tfrac12\Bigl[(1 + 3\,(6356752.314100/521854.0096752260)^2)\,\arctan(521854.0096752260/6356752.314100) \\
-   &\quad -\;3\,(6356752.314100/521854.0096752260)\Bigr]\\
-   &\approx 0.001931851417009556,\\
-   q'
-   &= 3\Bigl(1 + \tfrac{z'^2}{E^2}\Bigr)\Bigl[\,1 
-   -\tfrac{b'}{E}\,\tan^{-1}\!\bigl(\tfrac{E}{b'}\bigr)\Bigr]
-   -1\\
-   &= 3\Bigl(1 + (154.679521047945351/521854.0096752260)^2\Bigr)
-   \Bigl[\,1 \\
-   &\quad - (6378874.4995804736/521854.0096752260)\,\arctan(521854.0096752260/6378874.4995804736)\Bigr]
-   -1\\
-   &\approx -0.991302343874061.
+   &= \dfrac{1}{2} \left[\left(1 + \dfrac{3 \cdot b^2}{E^2}\right) \cdot \tan^{-1}\!\left(\dfrac{E}{b}\right) - \dfrac{3 \cdot b}{E}\right]\\
+   &= \dfrac{1}{2} \left[\left(1 + 3 \cdot \dfrac{6356752{,}314140356^2}{521854{,}009700248^2}\right) \cdot \tan^{-1}\!\left(\dfrac{521854{,}009700248}{6356752{,}314140356}\right) - 3 \cdot \dfrac{6356752{,}314140356}{521854{,}009700248}\right]\\
+   &\approx 0{,}00007334625840726972 \text{,}
+\end{aligned}
+\]
+
+
+\[
+\begin{aligned}
+   q'&= 3\left(1 + \dfrac{b'^2}{E^2}\right)\left[1 -\dfrac{b'}{E} \cdot \tan^{-1}\left(\dfrac{E}{b'}\right)\right] -1\\
+     &= 3\left(1 + \dfrac{6359611{,}897492543^2}{521854{,}009700248^2}\right)\left[1 -\dfrac{6359611{,}897492543}{521854.009700248} \cdot \tan^{-1}\left(\dfrac{521854.009700248}{6359611{,}897492543}\right)\right] -1\\
+     &\approx 0{,}002685631457639115 \text{.}
 \end{aligned}
 \]
 
@@ -810,31 +854,42 @@ Os termos auxiliares \(q_0\) e \(q'\) são:
 Agora, para facilitar a equação pode ser escrita como:
 
 \[
-\gamma_h = \frac{1}{W} \left( T_1 + T_2 - T_3 \right)
+\gamma_h = \frac{1}{W} \left( T_1 + T_2 \cdot T_3 - T_4 \right)
 \]
 
 \noindent
-em que os termos \(T_1\), \(T_2\) e \(T_3\) são calculados como segue.
+em que os termos \(T_1\), \(T_2\), \(T_3\) e \(T_4\) são calculados como segue.
 
 \[
 \begin{aligned}
-   T_1 &= \frac{G\,m}{b'^2 + E^2}
-   = \frac{3.986005\times10^{14}}{(6378874.4995804736)^2 + (521854.0096752260)^2}
-   \approx 9.730410897789502,\\[6pt]
-   T_2 &= \frac{\omega^2\,a^2\,E\,q'}{(b'^2 + E^2)\,q_0}
-   \Bigl(\tfrac{\sin^2\beta'}{2} - \tfrac{1}{6}\Bigr)\\
-   &=\frac{(7.292115\times10^{-5})^2\,(6378137.0)^2\,(521854.0096752260)\,(-0.991302343874061)}
-   {\bigl((6378874.4995804736)^2 + (521854.0096752260)^2\bigr)\,(0.001931851417009556)}
-   \Bigl(\tfrac{0.6203072260908323}{2} - \tfrac{1}{6}\Bigr)\\
-   &\approx 0.017531683839841,\\[6pt]
-   T_3 &= \omega^2\,b'\,\cos^2\beta'
-   = (7.292115\times10^{-5})^2\,(6378874.4995804736)\,(0.6164425097931949)^2
-   \approx 0.012292746194752.
+   T_1 &= \dfrac{Gm}{b'^2 + E^2} \\
+       &= \dfrac{398600500000000}{6359611{,}897492543^2 + 521854{,}009700248^2} \\
+       &\approx 9{,}789536263128698 \text{,}  \\[10pt]
+   T_2 &= \dfrac{\omega^2 \cdot a^2 \cdot E \cdot q'}{(b'^2 + E^2)q_0} \\
+       &= \dfrac{(7{,}292115 \times 10^{-5})^2 \cdot 6378137^2 \cdot 521854{,}009700248 \cdot 0{,}002685631457639115}{(6359611{,}897492543^2 + 521854{,}009700248^2)7.334625840726972 \times 10^{-5}} \\
+       &\approx 0{,}10151645913370078 \text{,} \\[10pt]
+   T_3 &= \dfrac{\sin^2\beta'}{2} - \dfrac{1}{6}\\
+       &= \dfrac{5{,}836824357174919 \times 10^{-10}}{2} - \dfrac{1}{6}\\
+       &\approx -0{,}16666666637482544 \text{,} \\[10pt]
+   T_4 &= \omega^2 \cdot b' \cdot \cos^2\beta' \\
+       &= (7{,}292115 \times 10^{-5})^2 \cdot 6359611{,}897492543 \cdot 0{,}9999999994163176 \\
+       &\approx 0.033817198833632274 \text{,}
 \end{aligned}
 \]
 
 
 
+
+\noindent
+O fator de normalização \(W\) pode ser calculado da seguinte forma:
+
+\[
+\begin{aligned}
+   W &= \sqrt{\dfrac{b'^2 + E^2 \cdot \sin^2\beta'}{b'^2 + E^2}} \\
+     &= \sqrt{\dfrac{6359611{,}897492543^2 + 521854{,}009700248^2 \cdot 5.836824357174919 \times 10^{-10}}{6359611{,}897492543^2 + 521854{,}009700248^2}} \\
+     &\approx 0{,}99665018867654 \text{.}
+\end{aligned}
+\]
 
 
 \noindent
@@ -842,137 +897,10 @@ Somando os termos e aplicando o fator \(\frac{1}{W}\), temos:
 
 \[
 \begin{aligned}
-   \gamma_h &= \frac{1}{W}\,\bigl(T_1 + T_2 - T_3\bigr) \\
-   &= 1.006292682703143022 \,\bigl(9.730410897789502 + 0.017531683839841 - 0.012292746194752\bigr)\\
-   &= 1.006292682703143022 \times 9.735649835434591 \\
-   &\approx \boxed{9.771532353715031\;\mathrm{m/s^2}} \\
-   &= 977\,153.2353715031\;\mathrm{mGal}.
-\end{aligned}
-\]
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-A formula:
-
-\[
-\gamma_h = \dfrac{1}{W} \left\{ \dfrac{G m}{{b'}^2 + E^2} + \dfrac{\omega^2 a^2 E q'}{({b'}^2 + E^2) q_0} \left(\dfrac{\sin^2 \beta'}{2} - \dfrac{1}{6} \right) - \omega^2 b' \cos^2 \beta' \right\} \text{,}
-\]
-
-\noindent
-como apresentada por Li \& Gotze (2001), fornece uma forma analítica para o cálculo da gravidade normal \(\gamma_h\) em qualquer ponto acima ou abaixo da superfície de um elipsoide de revolução, considerando os efeitos do achatamento e da rotação da Terra.
-
-
-
-Para determinar o valor de \(\gamma_h\) em um ponto localizado na latitude geodésica \(\phi = 0^\circ 0' 5''\) e altitude elipsoidal \(h = 2850\;\text{m}\), foram utilizados os parâmetros do elipsoide de referência GRS80, listados na Tabela~\ref{tab:grs80}.
-
-\begin{table}[h]
-\centering
-\caption{Parâmetros fundamentais do elipsoide GRS80.}
-\label{tab:grs80}
-\begin{tabular}{ll}
-\toprule
-Grandeza & Valor \\
-\midrule
-Semieixo maior (\(a\)) & \(6\,378\,137.0\;\text{m}\) \\
-Semieixo menor (\(b\)) & \(6\,356\,752.3141\;\text{m}\) \\
-Gravidade geocêntrica (\(Gm\)) & \(3.986005 \times 10^{14}\;\text{m}^3/\text{s}^2\) \\
-Velocidade angular da Terra (\(\omega\)) & \(7.292115 \times 10^{-5}\;\text{rad/s}\) \\
-Raio de curvatura polar (\(c = a^2/b\)) & \(6\,399\,593.626\;\text{m}\) \\
-Excentricidade linear (\(E = \sqrt{a^2 - b^2}\)) & \(521\,854.0097\;\text{m}\) \\
-\bottomrule
-\end{tabular}
-\end{table}
-
-\noindent
-A latitude reduzida \(\beta\) é obtida por:
-\[
-\tan\beta \;=\;\frac{b}{a}\,\tan\phi
-\quad\Longrightarrow\quad
-\beta \;=\;\arctan\!\Bigl(\tfrac{6356752.314100}{6378137}\,\tan(5''\times\pi/648000)\Bigr)
-\approx 0.000024155649381637128\;\mathrm{rad}
-\]
-
-\noindent
-Com isso, as componentes do vetor posição do ponto são:
-
-\[
-\begin{aligned}
-   r' &= a\cos\beta + h\cos\phi
-   =\;6378137\cos(0.000024155649381637128)+2850\cos(5''\times\pi/648000)\\
-   &\approx 6380987.021747859048170\;\mathrm{m},\\
-   z' &= c\sin\beta + h\sin\phi
-   =\;\tfrac{a^2}{b}\sin\beta + 2850\sin(5''\times\pi/648000)\\
-   &\approx 154.679521047945351\;\mathrm{m}.
-\end{aligned}
-\]
-
-\noindent
-Calculando \(r''^2 = r'^2 + z'^2\) e \(d''^2 = r'^2 - z'^2\), obtém-se os parâmetros adimensionais:
-
-\[
-\begin{aligned}
-   r''^2 &= r'^2 + z'^2 
-   = (6380987.021747859048170)^2 + (154.679521047945351)^2 
-   \approx 4.071513901439007243\times10^{13},\\
-   d''^2 &= r'^2 - z'^2 
-   \approx 4.071513899911626613\times10^{13},\\
-   R &= \frac{r''^2}{E^2}
-   = \frac{4.071513901439007243\times10^{13}}{(521854.009675226005138)^2}
-   \approx 149.512594065207032563,\\
-   D &= \frac{d''^2}{E^2}
-   \approx 149.512594036756723816.
-\end{aligned}
-\]
-
-\noindent
-A latitude reduzida modificada \(\beta'\) é determinada por:
-
-\[
-\begin{aligned}
-   \cos\beta' &= \sqrt{\tfrac12 + \tfrac{R}{2} - \sqrt{\tfrac14 + \tfrac{R^2}{4} - \tfrac{D}{2}}}
-   \approx 0.616442509793194871,\\
-   \sin^2\beta' &= 1 - (\cos\beta')^2
-   \approx 0.620307226090832328.
-\end{aligned}
-\]
-
-\noindent
-A coordenada radial modificada é:
-\[
-\begin{aligned}
-   b' &= \sqrt{\,r''^2 \;-\;E^2\cos^2\beta'\,} \\
-   &= \sqrt{4.071513901439007243\times10^{13} - (521854.009675226005138)^2\,(0.616442509793194871)^2} \\
-   &\approx 6378874.499580473620414\;\mathrm{m} \text{.}
+   \gamma &= \dfrac{1}{W} \left( T_1 + T_2 \cdot T_3 - T_4 \right) \\
+          &= \dfrac{ 9.789536263128698 + 0.10151645913370078 \cdot (-0.16666666637482544) - 0.033817198833632274}{0{,}99665018867654} \\
+          &= 9{,}7715324\;\mathrm{m/s^2} \\
+          &= 9{,}77153{,}24\;\mathrm{mGal} \text{.}
 \end{aligned}
 \]
 
