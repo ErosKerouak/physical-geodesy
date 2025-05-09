@@ -1,0 +1,726 @@
+
+
+As grandezas físicas medidas na superfície ou acima da superfície da Terra são naturalmente adequadas a descrições matemáticas em coordenadas esféricas. O arcabouço mais comum para isso é a análise harmônica esférica. A análise harmônica esférica pode ser útil para qualquer fenômeno global razoavelmente bem comportado e já foi aplicada a uma gama diversa de dados, desde oscilações livres da Terra até mudanças climáticas globais. No mínimo, a análise harmônica esférica fornece um meio de sintetizar, a partir de um conjunto disperso de medidas discretas sobre uma esfera, uma equação aplicável à esfera inteira. Tal equação pode então ser usada para interpolar o comportamento do fenômeno em regiões da esfera que não possuem medições.
+
+Como o nome sugere, entretanto, a análise harmônica esférica adquire um significado especial quando aplicada a campos potenciais, pois os blocos construtores dessa análise são uma consequência natural da equação de Laplace em coordenadas esféricas. Em particular, os diversos termos de uma expansão harmônica esférica são às vezes relacionados (com cautela) a fenômenos físicos específicos. O exemplo mais conhecido é a separação dos componentes dipolar e não dipolar do campo geomagnético: uma expansão harmônica esférica baseada em medidas discretas do campo geomagnético fornece diretamente descrições separadas dos campos dipolar e não dipolar, e esses dois campos são frequentemente atribuídos a processos separados, porém interligados, no núcleo da Terra.
+
+Este capítulo delineia os princípios básicos da análise harmônica esférica, baseando-se fortemente nos desenvolvimentos clássicos de Chapman e Bartels, Kellogg, Ramsey e MacMillan. Os capítulos subsequentes aplicarão esses princípios aos campos gravitacional e magnético da Terra.
+
+
+Claro! Aqui está a tradução fiel da seção **6.1 Introduction** do Capítulo 6 do livro de Richard J. Blakely:
+
+\section{Introdução}
+
+
+Antes de iniciarmos a análise harmônica esférica, será útil começar com um assunto mais familiar: a análise de Fourier de funções periódicas.
+Uma função $f(t)$, periódica em um intervalo $T$, pode ser sintetizada por uma soma infinita de senóides ponderadas, ou seja:
+
+$$
+f(t) = \sum_{m=0}^{\infty} \left( a_m \cos\left(\frac{2\pi m t}{T} \right) + b_m \sin\left(\frac{2\pi m t}{T} \right) \right),
+$$
+
+onde $a_m$ e $b_m$ são coeficientes de ponderação que, como veremos em breve, são determinados diretamente a partir de $f(t)$. A equação acima é a conhecida série de Fourier. Mas por que senóides são usadas como blocos construtores em vez de alguma outra função, como exponenciais ou logaritmos?
+Uma razão é que $f(t)$ é periódica — assim como senos e cossenos. Outra razão é que senos e cossenos possuem uma propriedade chamada *ortogonalidade*, e essa propriedade simplifica a determinação dos melhores coeficientes $a_m$ e $b_m$ na equação (6.1).
+A propriedade de ortogonalidade para senos e cossenos é demonstrada pelas três integrais seguintes:
+
+$$
+\int_0^T \cos\left(\frac{2\pi m t}{T}\right) \cos\left(\frac{2\pi n t}{T}\right) dt =
+\begin{cases}
+\frac{T}{2}, & \text{se } m = n \ne 0; \\
+0, & \text{se } m \ne n;
+\end{cases}
+$$
+
+$$
+\int_0^T \sin\left(\frac{2\pi m t}{T}\right) \sin\left(\frac{2\pi n t}{T}\right) dt =
+\begin{cases}
+\frac{T}{2}, & \text{se } m = n; \\
+0, & \text{se } m \ne n;
+\end{cases}
+$$
+
+$$
+\int_0^T \sin\left(\frac{2\pi m t}{T}\right) \cos\left(\frac{2\pi n t}{T}\right) dt = 0.
+$$
+
+Se multiplicarmos a equação (6.1) por $\sin\left(\frac{2\pi n t}{T}\right)$ ou por $\cos\left(\frac{2\pi n t}{T}\right)$ e integrarmos sobre o período $T$, todos os termos da soma infinita se anulam — exceto um!
+A série infinita então se reduz a expressões integrais para $a_n$ e $b_n$:
+
+$$
+a_n = \frac{2}{T} \int_0^T f(t) \cos\left(\frac{2\pi n t}{T}\right) dt, \quad n = 1, 2, \dots,
+$$
+
+$$
+b_n = \frac{2}{T} \int_0^T f(t) \sin\left(\frac{2\pi n t}{T}\right) dt, \quad n = 1, 2, \dots
+$$
+
+Assim, o fato de que senóides são ortogonais ao longo do período $T$ fornece um modo direto de calcular $a_n$ e $b_n$ a partir de $f(t)$.
+
+Agora, envolvamos $f(t)$ ao redor da circunferência de um círculo e deixemos $t$ ser o ângulo a partir de algum raio fixo (Figura 6.1). O período fundamental $T$ torna-se $2\pi$, e a equação (6.1) se transforma em:
+
+$$
+f(t) = \sum_{m=0}^{\infty} \left( a_m \cos(mt) + b_m \sin(mt) \right).
+$$
+
+Assim, a função $f(t)$, definida por uma posição ao longo do círculo, agora é representada por uma soma de senóides distribuídas ao redor desse círculo.
+
+A análise harmônica esférica serve ao mesmo propósito para representar uma função definida por uma posição em uma esfera. Seja $f(\theta, \phi)$ tal função, onde $\theta$ é a colatitude e $\phi$ é a longitude (veja o Apêndice A para uma revisão do sistema de coordenadas esféricas), e consideremos apenas um círculo de colatitude $\theta_0$. Ao longo dessa colatitude, $f(\theta_0, \phi)$ é uma função apenas de $\phi$, tem período fundamental $2\pi$, e pode ser representada como antes:
+
+$$
+f(\theta_0, \phi) = \sum_{m=0}^{\infty} \left( a_m \cos(m\phi) + b_m \sin(m\phi) \right).
+$$
+
+Uma equação similar pode ser escrita para qualquer colatitude da esfera, cada uma tendo seu próprio conjunto de coeficientes. Em outras palavras, os coeficientes são eles mesmos funções da colatitude, e:
+
+$$
+f(\theta, \phi) = \sum_{m=0}^{\infty} \left( a_m(\theta) \cos(m\phi) + b_m(\theta) \sin(m\phi) \right). \tag{6.2}
+$$
+
+Resta a questão de como formular da melhor forma os coeficientes $a_m(\theta)$ e $b_m(\theta)$, e esse é o tema das duas próximas seções.
+
+
+
+
+\section{Harmônicos Zonais}
+
+
+
+A dependência de $f(\theta, \phi)$ em relação a $\theta$ é completamente especificada pelos coeficientes $a_m(\theta)$ e $b_m(\theta)$, mas qual é a forma mais apropriada para esses coeficientes? Podemos esperar que eles possam ser aproximados por uma soma de funções ponderadas, assim como a dependência em relação a $\phi$ foi aproximada por uma soma de senóides ponderadas. Também esperamos que as funções ponderadas sejam ortogonais e periódicas ao redor de qualquer meridiano.
+
+A técnica de análise por mínimos quadrados é um caminho lógico a seguir. Podemos aproximar a dependência de $f(\theta, \phi)$ em relação a $\theta$ por uma soma finita de funções ponderadas, exigindo que a diferença quadrática entre $f(\theta, \phi)$ e a somatória finita seja mínima quando calculada como média sobre a superfície da esfera. (Especialistas em séries de Fourier reconhecerão que uma investigação semelhante de mínimos quadrados sobre o período $T$ descobre os “melhores” pesos também para senos e cossenos.)
+
+Primeiro, considere que $f(\theta, \phi)$ seja independente de $\phi$, de forma que a equação (6.2) se torne:
+
+$$
+f(\theta) = \sum_{n=0}^{k} c_n P_n(\theta),
+$$
+
+e aproxime $f(\theta)$ por uma soma finita e ponderada de $k + 1$ funções ortogonais $P_n(\theta)$:
+
+$$
+f_k(\theta) = c_0 P_0(\theta) + c_1 P_1(\theta) + \cdots + c_k P_k(\theta). \tag{6.3}
+$$
+
+Desejamos minimizar a diferença quadrática entre $f(\theta)$ e $f_k(\theta)$, média sobre toda a superfície esférica (Figura 6.2). Se o raio da esfera é $r$, então a área total da esfera é $4\pi r^2$, um elemento de área é $2\pi r^2 \sin\theta \, d\theta$, e o erro quadrático total, médio sobre a superfície esférica, é dado por:
+
+$$
+E = \int_0^\pi [f(\theta) - f_k(\theta)]^2 \cdot 2\pi r^2 \sin\theta \, d\theta.
+$$
+
+Para simplificar um pouco, podemos fazer as substituições $\mu = \cos\theta$ e $d\mu = -\sin\theta \, d\theta$, e a integral torna-se:
+
+$$
+E = \int_{-1}^{1} [f(\mu) - f_k(\mu)]^2 \, d\mu. \tag{6.4}
+$$
+
+Em seguida, substituímos a soma da equação (6.3) em (6.4) e aplicamos a condição de ortogonalidade:
+
+$$
+\int_{-1}^{1} P_n(\mu) P_m(\mu) \, d\mu =
+\begin{cases}
+A_n, & \text{se } n = m; \\
+0, & \text{se } n \ne m,
+\end{cases}
+$$
+
+onde $A_n$ é uma constante. Então, ao resolver a condição de mínimos quadrados
+
+$$
+\frac{dE}{dc_n} = 0,
+$$
+
+para cada $c_n$, obtemos:
+
+$$
+c_n = \frac{1}{A_n} \int_{-1}^{1} f(\mu) P_n(\mu) \, d\mu. \tag{6.5}
+$$
+
+> **Exercício 6.1**: Siga as instruções anteriores para derivar a equação (6.5) a partir da equação (6.4).
+
+Assim, ao aproximar $f(\theta)$ como uma soma ponderada de funções ortogonais, encontramos que os melhores pesos, no sentido dos mínimos quadrados, são dados pela equação (6.5), uma expressão integral que envolve a própria função $f(\theta)$. Uma propriedade notável das séries ortogonais está implícita nesse resultado: o cálculo de $c_n$ é independente de $k$; isto é, cada $c_n$ é o melhor coeficiente possível independentemente de quão longa seja a série ou de quantos termos estejam ausentes da série.
+
+Neste ponto, qualquer conjunto de funções ortogonais no intervalo $-1 < \mu < 1$ serviria. Um conjunto bem conhecido de funções é particularmente apropriado: os polinômios de Legendre, também chamados de funções de Legendre ou funções zonais. Os polinômios de Legendre são dados pela fórmula de Rodrigues:
+
+$$
+P_n(\mu) = \frac{1}{2^n n!} \frac{d^n}{d\mu^n}[(\mu^2 - 1)^n],
+$$
+
+onde $n$ é o grau do polinômio. Os cinco primeiros polinômios de Legendre são fornecidos na Tabela 6.1, e a Figura 6.3 mostra alguns deles graficamente. Pode-se demonstrar (Ramsey \[235\]) que:
+
+$$
+\int_{-1}^{1} P_n(\mu) P_{n'}(\mu) \, d\mu =
+\begin{cases}
+0, & \text{se } n \ne n'; \\
+\frac{2}{2n + 1}, & \text{se } n = n'. \tag{6.7}
+\end{cases}
+$$
+
+O que é uma demonstração da ortogonalidade das funções de Legendre no intervalo apropriado. As razões para selecionar essas funções ortogonais em particular se tornarão claras mais adiante neste capítulo.
+
+Portanto, a função $f(\mu)$ (ou $f(\theta)$) pode ser representada como uma soma infinita de funções de Legendre ponderadas:
+
+$$
+f(\mu) = \sum_{n=0}^{\infty} c_n P_n(\mu), \tag{6.8}
+$$
+
+chamada de *expansão zonal*. Deve estar claro, a partir da discussão anterior, como determinar os coeficientes nessa somatória. A ortogonalidade de $P_n(\mu)$ torna isso bastante simples, ao menos conceitualmente: se for necessário encontrar $c_j$, por exemplo, basta multiplicar ambos os lados da equação anterior por $P_j(\mu)$ e integrar ambos os lados no intervalo $-1 < \mu < 1$. O $j$-ésimo termo da expansão será o único termo não nulo, e esse termo único fornece:
+
+$$
+c_j = \frac{1}{A_j} \int_{-1}^{1} f(\mu) P_j(\mu) \, d\mu. \tag{6.9}
+$$
+
+Assim, a propriedade de ortogonalidade das funções de Legendre permite a determinação de cada coeficiente diretamente a partir da função que está sendo representada, exatamente como os senos e cossenos foram eficazes nesse sentido para funções unidimensionais.
+
+
+Claro! Aqui está a tradução fiel da subseção **6.2.1 Example** do Capítulo 6 do livro de Richard J. Blakely:
+
+\subsection{Exemplo}
+
+
+Um exemplo é apropriado neste ponto para colocar toda a matemática anterior em perspectiva. Suponha que $f(\theta, \phi)$ seja uma função da posição sobre uma esfera definida por:
+
+$$
+f(\theta, \phi) =
+\begin{cases}
+1, & \text{se } 0 < \theta < \frac{\pi}{2}; \\
+-1, & \text{se } \frac{\pi}{2} < \theta < \pi,
+\end{cases}
+$$
+
+como mostrado na Figura 6.4. Podemos esperar que uma função descontínua como essa seja difícil de representar com funções bem comportadas, como aquelas da Figura 6.3, mas vamos tentar mesmo assim.
+
+Primeiramente, representamos $f(\theta, \phi)$ como uma soma infinita de funções de Legendre:
+
+$$
+f(\theta) = c_1 P_1(\mu) + c_3 P_3(\mu) + c_5 P_5(\mu) + \cdots
+$$
+
+A resolução da equação (6.9) é bastante simplificada ao notarmos que $f(\mu)$ é uma função ímpar no intervalo $-1 < \mu < 1$, e que as funções de Legendre são pares quando $n$ é par, e ímpares quando $n$ é ímpar. Consequentemente, a equação (6.9) torna-se:
+
+$$
+c_n = \frac{2n + 1}{2} \int_{-1}^{1} f(\mu) P_n(\mu) \, d\mu,
+$$
+
+onde:
+
+* $c_n = 0$, se $n$ é par;
+* $c_n \ne 0$, se $n$ é ímpar.
+
+Em particular:
+
+$$
+c_1 = \frac{3}{2} \int_{-1}^{1} f(\mu) \mu \, d\mu = \frac{3}{2} \cdot \left( \int_{0}^{1} 1 \cdot \mu \, d\mu + \int_{-1}^{0} (-1) \cdot \mu \, d\mu \right) = \frac{3}{2} \cdot \left( \frac{1}{2} + \frac{1}{2} \right) = \frac{3}{2},
+$$
+
+$$
+c_3 = \frac{7}{2} \int_{-1}^{1} f(\mu) P_3(\mu) \, d\mu = \frac{7}{2} \cdot \frac{1}{8} = \frac{7}{16},
+$$
+
+$$
+c_5 = \frac{11}{2} \int_{-1}^{1} f(\mu) P_5(\mu) \, d\mu = \frac{11}{2} \cdot \frac{6}{96} = \frac{66}{96}.
+$$
+
+E portanto:
+
+$$
+f(\theta, \phi) \approx \frac{3}{2} P_1(\mu) + \frac{7}{16} P_3(\mu) + \frac{66}{96} P_5(\mu).
+$$
+
+A Figura 6.5 mostra o quão bem a função descontínua da Figura 6.4 pode ser representada por esses poucos polinômios de Legendre de ordem baixa. Naturalmente, mais termos na somatória melhorariam a aproximação de $f_k(\theta)$ a $f(\theta)$.
+
+Por fim, devemos observar algumas propriedades importantes das funções de Legendre, da Tabela 6.1 e da Figura 6.3:
+
+1. Se $n$ é ímpar, o último termo de $P_n(\theta)$ é um múltiplo de $\cos\theta$; se $n$ é par, o último termo é uma constante.
+
+2. Cada $P_n(\theta)$ tem $n$ zeros entre $\theta = 0^\circ$ e $\theta = 180^\circ$.
+
+3. Se $n$ é par, $P_n(\theta)$ é simétrica em relação a $\theta = 90^\circ$; se $n$ é ímpar, $P_n(\theta)$ é antissimétrica em relação a $\theta = 90^\circ$.
+
+
+Claro! Aqui está a tradução fiel da seção **6.3 Surface Harmonics** do Capítulo 6 do livro *Potential Theory in Gravity and Magnetic Applications*, de Richard J. Blakely:
+
+\section{Harmônicos de Superfície}
+
+
+
+Os polinômios de Legendre funcionam bem na síntese de uma função que depende apenas da colatitude, mas outros polinômios ortogonais são mais apropriados se a função também varia com a longitude. Foi afirmado anteriormente que qualquer série de funções ortogonais no intervalo $0 < \theta < \pi$ (ou $-1 < \mu < 1$) poderia representar a dependência de $f(\theta, \phi)$ em relação a $\theta$. As funções de Legendre são, na verdade, um subconjunto de outro conjunto de funções ortogonais que também representam os coeficientes $a_m(\theta)$ e $b_m(\theta)$ no intervalo $0 < \theta < \pi$ (ou $-1 < \mu < 1$) na equação (6.2). Essas são chamadas de **polinômios de Legendre associados**, também conhecidos como **funções de Legendre associadas** ou **funções esféricas**. Elas são denotadas por $P_{n,m}(\theta)$, onde $n$ é o grau e $m$ é a ordem do polinômio, e são dadas por:
+
+$$
+P_{n,m}(\theta) = \sin^m \theta \cdot \frac{d^m}{d(\cos\theta)^m} P_n(\cos\theta). \tag{6.10}
+$$
+
+Observe que os polinômios de Legendre associados se reduzem aos polinômios de Legendre quando $m = 0$. Alguns exemplos dessas funções associadas são:
+
+$$
+P_{1,1} = \sin\theta, \quad
+P_{2,1} = \tfrac{1}{2} \sin 2\theta, \quad
+P_{3,1} = \tfrac{1}{2} \sin\theta (5\cos^2\theta + 3),
+$$
+
+$$
+P_{2,2} = 3\sin^2\theta, \quad
+P_{3,2} = \tfrac{3}{2} \sin\theta \sin 2\theta, \quad
+P_{3,3} = 15 \sin^3\theta. \tag{6.12}
+$$
+
+Como prometido, os polinômios de Legendre associados são ortogonais no intervalo $-1 < \mu < 1$ e com respeito ao grau $n$, isto é:
+
+$$
+\int_{-1}^{1} P_{n,m}(\mu) P_{n',m}(\mu) \, d\mu =
+\begin{cases}
+0, & \text{se } n \ne n'; \\
+\frac{2(n+m)!}{(2n+1)(n-m)!}, & \text{se } n = n'. \tag{6.13}
+\end{cases}
+$$
+
+> **Exercício 6.2**: Teste a equação (6.13) para $n = 4$ e $m = 1$. Depois, para $n = 4$ e $m = 4$.
+
+Os resultados do Exercício 6.2 ilustram as grandes diferenças nos valores médios (isto é, quando integrados sobre o intervalo $-1 < \mu < 1$) dos quadrados dos polinômios de Legendre associados para um determinado grau $n$. Mais adiante, normalizaremos essas funções para tornar sua importância relativa mais uniforme dentro de qualquer série.
+
+Na seção anterior, os polinômios de Legendre mostraram ser blocos adequados para representar funções independentes da longitude, isto é:
+
+$$
+f(\theta) = c_0 P_0(\theta) + c_1 P_1(\theta) + c_2 P_2(\theta) + \cdots
+$$
+
+Os polinômios de Legendre associados são mais poderosos em geral porque também dependem da ordem $m$, e isso permite que $f(\theta, \phi)$ continue sendo uma função de $\phi$ na equação (6.2):
+
+$$
+f(\theta, \phi) = \sum_{m=0}^{\infty} \left[ a_m(\theta) \cos(m\phi) + b_m(\theta) \sin(m\phi) \right].
+$$
+
+Na próxima seção deste capítulo, veremos outra razão importante para utilizar as funções de Legendre associadas.
+
+Agora estamos em posição de reescrever a equação (6.2), a expansão original de $f(\theta, \phi)$, usando os polinômios de Legendre associados. De maneira semelhante à dedução da expansão em harmônicos zonais, escrevemos:
+
+$$
+a_0(\theta) = C_0 P_{0,0}(\theta) + C_2 P_{2,0}(\theta) + C_4 P_{4,0}(\theta) + \cdots
+$$
+
+$$
+a_1(\theta) = A_{1,1} P_{1,1}(\theta) + A_{2,1} P_{2,1}(\theta) + A_{3,1} P_{3,1}(\theta) + \cdots
+$$
+
+$$
+b_1(\theta) = B_{1,1} P_{1,1}(\theta) + B_{2,1} P_{2,1}(\theta) + B_{3,1} P_{3,1}(\theta) + \cdots
+$$
+
+$$
+a_2(\theta) = A_{2,2} P_{2,2}(\theta) + A_{3,2} P_{3,2}(\theta) + A_{4,2} P_{4,2}(\theta) + \cdots
+$$
+
+$$
+b_2(\theta) = B_{2,2} P_{2,2}(\theta) + B_{3,2} P_{3,2}(\theta) + B_{4,2} P_{4,2}(\theta) + \cdots
+$$
+
+Substituímos essas expressões na equação (6.2), obtendo:
+
+$$
+f(\theta, \phi) = C_0 P_{0,0}(\theta) + C_2 P_{2,0}(\theta) + C_4 P_{4,0}(\theta) + \cdots
+$$
+
+$$
++ \left[ A_{1,1} P_{1,1}(\theta) + A_{2,1} P_{2,1}(\theta) + A_{3,1} P_{3,1}(\theta) + \cdots \right] \cos\phi
+$$
+
+$$
++ \left[ B_{1,1} P_{1,1}(\theta) + B_{2,1} P_{2,1}(\theta) + B_{3,1} P_{3,1}(\theta) + \cdots \right] \sin\phi
+$$
+
+$$
++ \left[ A_{2,2} P_{2,2}(\theta) + A_{3,2} P_{3,2}(\theta) + A_{4,2} P_{4,2}(\theta) + \cdots \right] \cos 2\phi
+$$
+
+$$
++ \left[ B_{2,2} P_{2,2}(\theta) + B_{3,2} P_{3,2}(\theta) + B_{4,2} P_{4,2}(\theta) + \cdots \right] \sin 2\phi + \cdots
+$$
+
+Reorganizando os termos, temos:
+
+$$
+f(\theta, \phi) = \sum_{n=0}^{\infty} C_n P_{n,0}(\theta)
++ \sum_{n=1}^{\infty} \sum_{m=1}^{n} \left[ A_{n,m} \cos(m\phi) + B_{n,m} \sin(m\phi) \right] P_{n,m}(\theta). \tag{6.14}
+$$
+
+Portanto, $f(\theta, \phi)$ é representada por uma soma infinita de funções, cada uma composta por polinômios de Legendre associados, senos e cossenos.
+
+Por razões que ficarão claras na Seção 6.4, a equação (6.14) é chamada de **expansão em harmônicos esféricos de superfície**, e as funções $P_{n,m}(\theta) \cos(m\phi)$ e $P_{n,m}(\theta) \sin(m\phi)$ são chamadas de **harmônicos esféricos de superfície**. Observe que, quando $m = 0$, a expansão harmônica esférica se reduz à expansão zonal, como na equação (6.8). Como devemos esperar, os harmônicos de superfície são ortogonais sobre a esfera: salvo quando dois harmônicos de superfície forem idênticos, o produto deles terá média zero sobre a superfície da esfera. Por exemplo:
+
+$$
+\int_0^{2\pi} \int_0^{\pi} P_{n,m}(\theta) \cos m\phi \cdot P_{n',m'}(\theta) \cos m'\phi \cdot r^2 \sin\theta \, d\theta \, d\phi =
+\begin{cases}
+0, & \text{se } n \ne n' \text{ ou } m \ne m'; \\
+2\pi r^2, & \text{se } n = n', m = m' \ne 0; \\
+\pi r^2, & \text{se } n = n', m = m' = 0.
+\end{cases} \tag{6.15}
+$$
+
+Um resultado semelhante vale se $\cos m\phi$ for substituído por $\sin m\phi$ ou vice-versa.
+
+
+
+\section{Funções Normalizadas}
+ 
+
+Como ilustrado no Exercício 6.3, a magnitude de um polinômio de Legendre associado depende de seu grau e ordem, de modo que a magnitude de cada coeficiente na expansão harmônica deve compensar essa variação. Uma análise harmônica esférica seria mais instrutiva se a magnitude de cada coeficiente refletisse a importância relativa de seu termo correspondente na expansão.
+
+Isso pode ser alcançado **normalizando** as funções de Legendre associadas. Dois esquemas de normalização são comumente utilizados. As **funções totalmente normalizadas**, frequentemente usadas em estudos geodésicos, são relacionadas aos polinômios de Legendre não normalizados por:
+
+$$
+\bar{P}_{n}^{m}(\theta) = \sqrt{\frac{(2n + 1)(n - m)!}{2(n + m)!}} \cdot P_{n}^{m}(\theta).
+$$
+
+Em estudos geomagnéticos, as **funções de Schmidt** são mais típicas, e são dadas por:
+
+$$
+S_{n}^{m}(\theta) =
+\begin{cases}
+\bar{P}_{n}^{0}(\theta), & \text{se } m = 0; \\
+\sqrt{2} \cdot \bar{P}_{n}^{m}(\theta), & \text{se } m \ne 0.
+\end{cases}
+$$
+
+Reescrevendo a equação (6.14), mas utilizando, por exemplo, as funções de Schmidt, obtemos:
+
+$$
+f(\theta, \phi) = \sum_{n=0}^{\infty} A_{n}^{0} S_{n}^{0}(\theta)
++ \sum_{n=1}^{\infty} \sum_{m=1}^{n} \left[ A_{n}^{m} \cos(m\phi) + B_{n}^{m} \sin(m\phi) \right] S_{n}^{m}(\theta). \tag{6.16}
+$$
+
+A magnitude dos harmônicos de superfície de Schmidt, quando elevados ao quadrado e integrados sobre a esfera, é **independente da ordem** $m$; isto é:
+
+$$
+\int_{0}^{2\pi} \int_{0}^{\pi} S_{n}^{m}(\theta)^2 \cdot \sin\theta \, d\theta \, d\phi =
+\begin{cases}
+0, & \text{se } n \ne n' \text{ ou } m \ne m'; \\
+2\pi, & \text{se } n = n' \text{ e } m = m' \ne 0; \\
+\pi, & \text{se } n = n' \text{ e } m = m' = 0.
+\end{cases} \tag{6.17}
+$$
+
+Assim, as magnitudes dos coeficientes $A_{n}^{m}$ e $B_{n}^{m}$ indicam rapidamente a **“energia” relativa** de seus respectivos termos na série. As funções de Schmidt são comumente utilizadas em representações globais do campo geomagnético.
+
+Algumas funções de Schmidt de baixo grau são mostradas na Figura 6.6, e a Tabela 6.2 apresenta vários harmônicos de superfície de baixo grau com base na normalização de Schmidt. A Sub-rotina B.4 no Apêndice B fornece um algoritmo em Fortran, modificado de Press et al. \[233\], para calcular funções de Legendre associadas normalizadas.
+
+
+Claro! Abaixo está a tradução fiel da seção **6.3.2 Tesseral and Sectoral Surface Harmonics** do livro *Potential Theory in Gravity and Magnetic Applications*, de Richard J. Blakely:
+
+\subsection{Harmônicos de Superfície Tesserais e Setoriais}
+
+
+O harmônico de superfície normalizado
+
+$$
+S_{n}^{m}(\theta, \phi) = P_{n}^{m}(\theta) \cdot \cos(m\phi) \quad \text{ou} \quad P_{n}^{m}(\theta) \cdot \sin(m\phi)
+$$
+
+anula-se ao longo de $n - m$ círculos de latitude, que correspondem aos zeros de $P_{n}^{m}(\theta)$. Ele também se anula ao longo de $2m$ linhas de meridiano entre $0$ e $2\pi$, devido ao termo $\sin(m\phi)$ ou $\cos(m\phi)$. As linhas de latitude e meridiano ao longo das quais os harmônicos de superfície normalizados se anulam dividem a superfície esférica em regiões com sinal alternado.
+
+Se $m = 0$, o harmônico de superfície depende apenas da latitude e é chamado de **harmônico zonal**.
+
+Se $n - m = 0$, ele depende apenas da longitude e é chamado de **harmônico setorial** (como os “setores” de uma laranja).
+
+Se $m > 0$ e $n - m > 0$, o harmônico é denominado **harmônico tesseral**.
+
+Exemplos específicos de cada um desses três tipos de harmônicos de superfície normalizados são mostrados na Figura 6.7.
+
+Conforme indicado pelas equações (6.14) e (6.16), qualquer função razoavelmente bem comportada pode ser representada por uma soma infinita de padrões **zonais**, **setoriais** e **tesserais**, cada um ponderado por um coeficiente apropriado $A_{n}^{m}$ ou $B_{n}^{m}$, como mostrado na equação (6.16). Essa soma é apenas um análogo tridimensional das séries de Fourier, nas quais $f(t)$ também é representada por uma soma infinita de padrões (senóides, no caso de Fourier) multiplicados por coeficientes apropriados.
+
+
+Com certeza! Abaixo está a tradução fiel da seção **6.4 Application to Laplace’s Equation** do livro *Potential Theory in Gravity and Magnetic Applications*, de Richard J. Blakely:
+
+\section{Aplicação à Equação de Laplace}
+
+
+
+As seções anteriores deste capítulo mostraram como sintetizar uma função $f(\theta, \phi)$ a partir de medições dessa função sobre uma esfera. Os blocos construtores dessa síntese foram os polinômios de Legendre e os polinômios de Legendre associados, escolhidos sem um motivo particular, exceto pelo fato de serem ortogonais em uma esfera. Nesta seção, investigamos o caso especial em que $f(\theta, \phi)$ é um **campo potencial que satisfaz a equação de Laplace**. Veremos que os mesmos blocos construtores — os polinômios de Legendre e os polinômios de Legendre associados — são uma **consequência natural** da equação de Laplace e fornecem insights adicionais sobre a representação de funções harmônicas sobre uma esfera.
+
+
+\section{Funções homogêneas e equação de Euler}
+
+
+Como já sabemos, os campos potenciais fora das regiões-fonte satisfazem a equação de Laplace, que, em coordenadas cartesianas, é dada por:
+
+$$
+\nabla^2 V = \frac{\partial^2 V}{\partial x^2} + \frac{\partial^2 V}{\partial y^2} + \frac{\partial^2 V}{\partial z^2} = 0.
+$$
+
+Toda solução da equação de Laplace é uma **função harmônica**, desde que as primeiras derivadas da função sejam contínuas e as segundas derivadas existam. Agora, seja $D$ qualquer operação diferencial espacial em coordenadas cartesianas, como $\frac{\partial}{\partial x}$, $\frac{\partial^2}{\partial x^2}$, ou $\nabla^2$. Duas dessas operações quaisquer são comutativas, ou seja:
+
+$$
+D\nabla^2 V(x, y, z) = \nabla^2 D V(x, y, z).
+$$
+
+Portanto, **se $V(x, y, z)$ é harmônica, qualquer derivada espacial de $V$ também será harmônica**.
+
+Este teorema fornece um meio de gerar várias funções harmônicas a partir de soluções conhecidas da equação de Laplace. Por exemplo, como:
+
+$$
+\nabla^2 \left( \frac{1}{r} \right) = 0,
+$$
+
+sabemos imediatamente que $\frac{\partial}{\partial x} \left( \frac{1}{r} \right)$, $\nabla \left( \frac{1}{r} \right)$, e $\mathbf{m} \cdot \nabla \left( \frac{1}{r} \right)$ (o potencial magnético de um dipolo) também são harmônicas. Isso será importante para os capítulos seguintes. Se for mostrado, por exemplo, que o potencial magnético escalar da Terra é harmônico, então qualquer componente do campo magnético da Terra também deve ser harmônica.
+
+Uma função $V$ é dita **homogênea de grau $n$** se satisfaz a **equação de Euler**:
+
+$$
+x \frac{\partial V}{\partial x} + y \frac{\partial V}{\partial y} + z \frac{\partial V}{\partial z} = n V. \tag{6.19}
+$$
+
+Funções homogêneas que também satisfazem a equação de Laplace são chamadas de **funções harmônicas esféricas sólidas** (*spherical solid harmonics*) — por razões que ficarão claras em breve. Exemplos específicos incluem: $xyz$ (grau 3), $xy$ (grau 2), $x$ (grau 1), $\log r$ (grau 0), $\frac{1}{r}$ (grau -1), e $\frac{1}{r^2}$ (grau -2).
+
+> **Exercício 6.3**: Dê um exemplo de uma função harmônica esférica de grau 4.
+
+É fácil mostrar que se $V$ é homogênea, então qualquer derivada de $V$ também é homogênea. Logo, todas as derivadas de $V$ são homogêneas, e em particular o potencial de um dipolo magnético também é.
+
+
+
+
+
+\section{Fonte pontual fora da origem}
+
+
+Considere uma partícula de massa localizada no eixo $z$ positivo, em $z = a$, e observada a partir de um ponto $P(r, \theta, \phi)$ (Figura 6.8). O potencial no ponto $P$ é:
+
+$$
+V = \frac{1}{R},
+$$
+
+onde $R = \sqrt{a^2 + r^2 - 2ar\cos\theta}$, e $\mu = \cos\theta$. Primeiro, consideramos o caso em que $r < a$. Extraímos o parâmetro $a$ como fator comum:
+
+$$
+\frac{1}{R} = \frac{1}{a} \left[1 + \left(\frac{r}{a}\right)^2 - 2\left(\frac{r}{a}\right)\mu \right]^{-1/2}. \tag{6.20}
+$$
+
+Expandimos o potencial em uma **série binomial**:
+
+$$
+\frac{1}{R} = \frac{1}{a} \left[1 + \left(\frac{r}{a}\right)^2 - 2\left(\frac{r}{a}\right)\mu \right]^{-1/2}
+= \frac{1}{a} \sum_{n=0}^{\infty} \left(\frac{r}{a}\right)^n P_n(\mu),
+$$
+
+onde os $P_n(\mu)$ são os **polinômios de Legendre**.
+
+Uma rápida comparação desta série com a Tabela 6.1 mostra que os fatores contendo $\mu$ são precisamente os polinômios de Legendre. Portanto, o potencial de uma massa pontual deslocada da origem pode ser representado por uma soma infinita de funções de Legendre ponderadas:
+
+$$
+V = \sum_{n=0}^{\infty} \left( \frac{r}{a} \right)^n P_n(\mu). \tag{6.21}
+$$
+
+> **Nota**: Esta série **converge apenas se $r < a$**. Se, por outro lado, $r > a$, basta fatorar $r$ em vez de $a$ na equação (6.20). Nesse caso, a série torna-se:
+
+$$
+\frac{1}{R} = \sum_{n=0}^{\infty} \left( \frac{a}{r} \right)^{n+1} P_n(\mu).
+$$
+
+Para ser completo, podemos escrever:
+
+$$
+\frac{1}{R} =
+\begin{cases}
+\sum_{n=0}^{\infty} \left( \frac{r}{a} \right)^n P_n(\mu), & \text{se } r < a; \\
+\sum_{n=0}^{\infty} \left( \frac{a}{r} \right)^{n+1} P_n(\mu), & \text{se } r > a.
+\end{cases}
+$$
+
+Observe que, se $a = 0$ (isto é, se a massa pontual estiver localizada na origem), apenas o termo $n = 0$ é diferente de zero, e a expansão se reduz à equação:
+
+$$
+V = \frac{1}{r}.
+$$
+
+Nas seções anteriores, vimos que qualquer função da latitude especificada sobre uma esfera pode ser aproximada por uma série de polinômios de Legendre, e que os melhores coeficientes da série são fornecidos pela propriedade de ortogonalidade desses polinômios. Mais especificamente, a equação (6.21) é um caso especial da equação (6.8), e representa um exemplo de **expansão harmônica zonal**. Agora vemos que o potencial devido a uma massa pontual ao longo do eixo vertical é naturalmente aproximado por uma série de polinômios de Legendre. Fica claro, portanto, por que os polinômios de Legendre foram escolhidos nas seções anteriores para representar funções arbitrárias em uma esfera.
+
+O primeiro termo da expansão para $r > a$ é $\frac{1}{r}$, o potencial de um monopolo localizado na origem. Por isso, esse termo é chamado de **termo monopolar**. De modo semelhante, o termo $n = 1$ é $\frac{a \mu}{r^2}$, que corresponde ao potencial de um **dipolo** localizado na origem e orientado na direção $\theta = 0$; por consequência, o segundo termo da expansão é referido como o **termo dipolar**.
+
+> **Exercício 6.4**: Qual é o termo quadrupolar? E qual seu significado físico?
+
+Assim, a equação (6.21) representa o potencial de um monopolo deslocado como uma soma ponderada de potenciais causados por uma série de massas (um monopolo, um dipolo e um conjunto infinito de fontes mais complexas) localizadas na origem. Cada elemento da expansão é **harmônico** e **homogêneo**, e portanto é uma **função harmônica esférica sólida**.
+
+
+Claro! Aqui está a tradução fiel da subseção **6.4.3 General Spherical Surface Harmonic Functions** do livro *Potential Theory in Gravity and Magnetic Applications*, de Richard J. Blakely:
+
+\section{Funções Harmônicas Esféricas de Superfície — Caso Geral}
+
+
+
+Agora considere qualquer função $V(x, y, z)$ que seja **homogênea de grau $n$**. Tais funções possuem uma propriedade interessante: ao serem transformadas para coordenadas esféricas, elas podem ser decompostas em três fatores, cada um dependendo apenas de uma das variáveis $r$, $\theta$ e $\phi$. Considere, por exemplo, a função:
+
+$$
+V(x, y, z) = x^i y^j z^k,
+$$
+
+que é homogênea de grau $i + j + k$. Para transformá-la para coordenadas esféricas, usamos as substituições:
+
+$$
+x = r \cos\theta \cos\phi, \\
+y = r \cos\theta \sin\phi, \\
+z = r \sin\theta, \tag{6.22}
+$$
+
+o que resulta em:
+
+$$
+V(r, \theta, \phi) = r^{i+j+k} (\cos\theta)^{i+j} (\sin\theta)^k (\cos\phi)^i (\sin\phi)^j.
+$$
+
+Portanto, a função $V$ consiste em três fatores que dependem respectivamente de $r$, $\theta$ e $\phi$. Em geral, uma função homogênea pode ser escrita em coordenadas esféricas como:
+
+$$
+V(r, \theta, \phi) = r^n S_n(\theta, \phi),
+$$
+
+onde $S_n(\theta, \phi)$ é independente de $r$.
+
+Agora suponha que $V(r, \theta, \phi) = r^n S_n(\theta, \phi)$ seja **harmônica** além de homogênea, ou seja, que $V$ seja uma **função harmônica esférica sólida**. Substituindo $r^n S_n(\theta, \phi)$ na equação de Laplace em coordenadas esféricas (ver Apêndice A), obtemos:
+
+$$
+\nabla^2 V = \nabla^2 \left[ r^n S_n(\theta, \phi) \right] = 0.
+$$
+
+Ao aplicar os operadores diferenciais (e descartando o fator comum em $r$), essa equação reduz-se a:
+
+$$
+\frac{1}{\sin\theta} \frac{\partial}{\partial \theta} \left( \sin\theta \frac{\partial S_n}{\partial \theta} \right)
++ \frac{1}{\sin^2\theta} \frac{\partial^2 S_n}{\partial \phi^2}
++ n(n+1) S_n = 0. \tag{6.23}
+$$
+
+Essa é a **equação de Legendre generalizada**; trata-se simplesmente da equação de Laplace em coordenadas esféricas aplicada a funções harmônicas e homogêneas. Note que **essa equação não depende de $r$**. Qualquer função $S_n$ que satisfaça a equação (6.23) é chamada de **harmônico esférico de superfície de grau $n$**, pois representa a dependência angular $(\theta, \phi)$ da função harmônica sólida $r^n S_n(\theta, \phi)$ sobre uma esfera de raio constante $r$.
+
+O grau $n$ do harmônico afeta a equação (6.23) apenas através do termo $n(n + 1) S_n$. Como $r^n S_n(\theta, \phi)$ é harmônica, e já que $n(n+1)$ permanece inalterado se substituirmos $n$ por $-(n + 1)$, segue-se que:
+
+$$
+\frac{1}{r^{n+1}} S_n(\theta, \phi)
+$$
+
+também é uma função harmônica. Este é o resultado geral do exemplo específico $V = 1/R$ discutido na subseção anterior.
+
+
+Precisamos agora demonstrar que o harmônico de superfície esférico $S_n(\theta, \phi)$ é, na verdade, uma combinação linear de **funções de Legendre associadas**, ou seja:
+
+$$
+S_n(\theta, \phi) = \sum_{m=0}^{n} \left[ A_{n}^{m} \cos(m\phi) + B_{n}^{m} \sin(m\phi) \right] P_{n}^{m}(\theta). \tag{6.24}
+$$
+
+Como $V = r^n S_n(\theta, \phi)$ é homogênea em $x, y, z$, é evidente pelas equações (6.22) que $S_n(\theta, \phi)$ deve envolver $\sin\theta$ e $\cos\theta$ em conjunto até o grau $n$ (no máximo), e o mesmo se aplica a $\sin\phi$ e $\cos\phi$. Pode-se demonstrar — com uma trigonometria trabalhosa, porém direta — que:
+
+$$
+S_n(\theta, \phi) = \sum_{m=0}^{n} S_{n,m}(\theta) \cos(m\phi + \gamma), \tag{6.25}
+$$
+
+onde os coeficientes $S_{n,m}$ são funções apenas de $\theta$, e $\gamma$ é uma fase constante. Em vez de provar diretamente essa forma, o autor propõe uma demonstração por exemplo.
+
+**Exemplo**: Seja $V = \frac{xy}{r^5}$. Em coordenadas esféricas:
+
+$$
+V = r^{-3} \cos^2\theta \cos\phi \sin\phi.
+$$
+
+Logo, o harmônico de superfície correspondente é:
+
+$$
+S_2(\theta, \phi) = \cos^2\theta \cos\phi \sin\phi,
+$$
+
+que tem a forma geral de (6.25), com:
+
+* $S_{2,0}(\theta) = 0$,
+* $S_{2,2}(\theta) = \tfrac{1}{2} \cos^2\theta \sin(2\phi)$.
+
+Isso comprova a validade da equação (6.25) para esse caso específico.
+
+Substituindo a equação (6.25) na equação de Legendre generalizada (6.23), temos:
+
+$$
+\sum_{m=0}^{n} \left[ \frac{1}{\sin\theta} \frac{d}{d\theta} \left( \sin\theta \frac{d S_{n,m}}{d\theta} \right)
+- \frac{m^2}{\sin^2\theta} S_{n,m} + n(n+1) S_{n,m} \right] \cos(m\phi + \gamma) = 0.
+$$
+
+Como essa equação deve ser válida para todo $\phi$, o coeficiente de cada termo $\cos(m\phi + \gamma)$ deve ser zero individualmente. Isso leva à equação diferencial:
+
+$$
+\frac{1}{\sin\theta} \frac{d}{d\theta} \left( \sin\theta \frac{d S_{n,m}}{d\theta} \right)
+- \frac{m^2}{\sin^2\theta} S_{n,m} + n(n+1) S_{n,m} = 0. \tag{6.26}
+$$
+
+A solução dessa equação é $P_{n}^{m}(\theta)$ ou alguma constante vezes $P_{n}^{m}(\theta)$, ou seja:
+
+$$
+S_{n,m}(\theta) = C_{n}^{m} P_{n}^{m}(\theta).
+$$
+
+Para provar isso, partimos da identidade:
+
+$$
+(1 - \mu^2)^n = \sum_{k=0}^{n} a_k \mu^k,
+$$
+
+diferenciamos ambos os lados $n+1$ vezes, e então mais $m$ vezes, até obter a forma da equação (6.26). O resultado final é:
+
+$$
+S_n(\theta, \phi) = \sum_{m=0}^{n} \left[ A_{n}^{m} \cos(m\phi) + B_{n}^{m} \sin(m\phi) \right] P_{n}^{m}(\theta),
+$$
+
+como afirmado anteriormente na equação (6.24).
+
+---
+
+Lembre-se agora que qualquer função harmônica pode ser escrita como uma soma:
+
+$$
+V(r, \theta, \phi) = \sum_{n=0}^{\infty} r^n S_n(\theta, \phi), \tag{6.30}
+$$
+
+ou, equivalentemente, como:
+
+$$
+V(r, \theta, \phi) = \sum_{n=0}^{\infty} \frac{1}{r^{n+1}} S_n(\theta, \phi). \tag{6.31}
+$$
+
+Portanto, um campo harmônico pode ser representado por uma soma infinita de **funções harmônicas esféricas sólidas**, em que a dependência em $\theta$ e $\phi$ está contida nos **harmônicos esféricos de superfície**, os quais, por sua vez, são representados por somas de funções de Legendre associadas. Fica então evidente por que, quando foi necessário representar a dependência angular de $f(\theta, \phi)$, escolhemos as funções de Legendre associadas.
+
+Note que, se os $S_n(\theta, \phi)$ forem determinados — por exemplo, a partir de medições do potencial $V(r, \theta, \phi)$ sobre a superfície de uma esfera —, então a equação (6.31) fornece diretamente o valor de $V$ em qualquer ponto **fora** da esfera. Ou seja, o campo potencial devido a fontes situadas inteiramente dentro de uma esfera pode ser conhecido em qualquer ponto externo, **exclusivamente a partir do comportamento do campo na superfície esférica**. De fato, as equações (6.30) e (6.31) permitem **determinar a importância relativa de fontes internas e externas à esfera** — um tema que será tratado no Capítulo 8.
+
+Podemos agora nos perguntar: o que toda essa matemática tem a ver com campos potenciais gerados por distribuições gerais de densidade ou magnetização?
+
+Para fornecer uma resposta parcial, considere a expressão do potencial gravitacional observado em $P$ e causado por uma distribuição limitada de densidade (equação 3.5):
+
+$$
+V(P) = G \int \frac{\rho(Q)}{R} \, dv,
+$$
+
+onde $Q$ é a localização do elemento de volume e $R$ é a distância entre $P$ e $Q$ (Figura 6.9). Podemos tratar cada elemento de volume dessa massa como um ponto fonte. Observado na superfície de uma esfera que envolve toda a distribuição, cada elemento volumétrico se submete a uma **análise harmônica esférica**, similar ao exemplo da subseção 6.2.1 (embora, geralmente, não seja uma expansão puramente zonal).
+
+Cada termo da expansão representa o potencial de uma **massa idealizada** (monopolo, dipolo, quadrupolo etc.) localizada na origem, e os coeficientes da expansão refletem a importância relativa de cada uma dessas fontes idealizadas para modelar o elemento real deslocado. O campo potencial causado pela distribuição total de massa pode então ser **medido** e **analisado harmonicamente**. Pelo **princípio da superposição**, os termos resultantes da expansão representam os efeitos integrados de toda a massa, e os coeficientes estarão relacionados à forma como a massa está distribuída ao redor da origem.
+
+Considere, como exemplo trivial, o potencial de uma **massa esférica uniforme**, medido em vários pontos sobre uma esfera maior centrada na massa. A análise harmônica esférica desses dados indicaria que **todos os coeficientes são zero**, exceto o termo de grau $n = 0$, mostrando imediatamente que a massa é equivalente a um **monopolo centrado** — como de fato é.
+
+Da mesma forma, uma análise harmônica esférica do **potencial magnético** causado por uma esfera magnetizada uniformemente reduzir-se-ia apenas ao termo $n = 1$, indicando diretamente a natureza da distribuição de magnetização: que o corpo esférico magnetizado é equivalente a um **dipolo centrado**.
+
+Os Capítulos 7 e 8 aplicarão esses princípios aos campos **gravitacional** e **magnético** globais, respectivamente.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

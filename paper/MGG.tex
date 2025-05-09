@@ -1,0 +1,41 @@
+
+
+
+
+### 3.1 Estrutura do Capítulo
+
+Este capítulo é dedicado à construção e manipulação dos chamados modelos globais do potencial anômalo.
+
+Esses modelos são, basicamente, séries truncadas de harmônicos esféricos ou elipsoidais. Essas funções são tão importantes na geodésia física que precisam ser cuidadosamente introduzidas, e suas propriedades matemáticas devem ser conhecidas por todos que lidam com representações do campo de gravidade.
+
+Como sempre, começamos com a fórmula de Newton que relaciona densidade de massa e potencial gravitacional. Se utilizarmos uma representação semelhante para o potencial normal, podemos concluir que o potencial anômalo também pode ser representado na forma de uma integral newtoniana. O desenvolvimento do núcleo de Newton — ou seja, o inverso da distância entre dois pontos — em uma série de polinômios chamados polinômios de Legendre, é um tópico clássico apresentado na Seção 3.2.
+
+Os polinômios de Legendre são então estudados na Seção 3.3. Em particular, são estabelecidas suas propriedades integrais (uma propriedade reprodutora por convolução na esfera unitária, bem como a ortogonalidade em $L^2$ no intervalo unitário $[-1,1]$) e suas propriedades diferenciais. Dessa forma, obtemos uma primeira representação do potencial como uma série de funções harmônicas, cada uma decrescendo no infinito como uma potência inversa de $r$. A série é claramente convergente fora de qualquer esfera que contenha todas as massas.
+
+Na Seção 3.4, os chamados harmônicos esféricos de superfície $\{Y_{nm}\}$ são introduzidos. A construção precisa dessas funções é adiada para a Parte III, onde a teoria completa é derivada a partir do estudo dos espaços de polinômios harmônicos. Um resultado básico provado na Parte III é o chamado **teorema de soma**, apresentado na equação (3.54).
+
+Esse teorema fornece uma relação fundamental entre os harmônicos esféricos de grau $n$ e ordem $m$ e os polinômios de Legendre correspondentes de grau $n$.
+
+Se então definirmos os **harmônicos esféricos sólidos** $\{S_{nm}\}$ como os harmônicos esféricos de superfície de grau $n$ divididos por $r^{n+1}$, vemos imediatamente que o nosso potencial $T$ pode ser expresso como uma série desses harmônicos esféricos sólidos, convergente em qualquer esfera externa às massas.
+
+A sequência $\{Y_{nm}\}$ é então estudada no espaço das funções quadrado-integráveis ($L^2$) na esfera unitária; constata-se que essa sequência forma um sistema ortonormal completo, o que implica que qualquer função em $L^2$ pode ser desenvolvida em uma série de $Y_{nm}$. Esse fato, junto com a afirmação de que $S_{nm} = r^{-(n+1)} Y_{nm}$ são funções harmônicas que coincidem com $Y_{nm}$ na esfera unitária, permite a resolução de problemas geodésicos clássicos para a esfera, levando ao uso dos núcleos de Poisson, Hotine e Stokes.
+
+Tais problemas, embora não realistas, imitam — no caso de uma fronteira esférica — outros problemas que podem ser formulados como problemas de contorno, nos quais o potencial desconhecido $T$ deve ser harmônico fora de uma dada superfície $S$, e satisfazer alguma relação diferencial na própria superfície.
+
+Entretanto, um segundo teorema, o **Teorema 3**, afirma que, dada qualquer superfície razoável $S$, os traços de $\{S_{nm}\}$ sobre $S$ formam um sistema completo em $L^2(S)$. Esse resultado é ainda mais importante na prática para construir soluções aproximadas de problemas de contorno geodésicos (BVP). Esses problemas nos aproximam muito mais de situações realistas do que os exemplos anteriores com fronteiras esféricas.
+
+Até aqui, aprendemos como resolver exatamente um problema de contorno para a equação de Laplace no exterior de um domínio esférico (como a fórmula de Stokes), mas temos um problema realista com uma superfície não esférica e valores de contorno (por exemplo, anomalias da gravidade) sobre ela.
+
+Se pudéssemos encontrar uma função harmônica em um domínio maior do que o exterior de $S$ — de fato, harmônica até uma esfera interna (também chamada **esfera de Bjerhammar**) — ainda poderíamos usar a representação de Stokes para essa função e impor que os valores de contorno das anomalias da gravidade fossem alcançados em $S$.
+
+Isso, em geral, **não é possível**; os valores de uma função harmônica e de todas as suas derivadas dentro do domínio de harmonicidade são extremamente suaves, e apenas funções muito específicas em $S$ podem ter uma continuação harmônica até uma esfera interna.
+
+Entretanto, como os dados reais são apenas pontuais e finitos em número, podemos sempre interpolá-los por uma função harmônica até qualquer esfera interna fixa. Esse ponto de vista, que também está intimamente relacionado ao Teorema 3, é estabelecido na Seção 3.5 na forma de um novo **Teorema 4**, conhecido na geodésia como o **Teorema de Krarup**.
+
+Na Seção 3.6, a estrutura esférica das duas seções anteriores é generalizada para domínios com fronteira elipsoidal. Demonstra-se que, com o uso de coordenadas elipsoidais apropriadas, é possível construir um novo sistema de funções, chamadas **harmônicos elipsoidais**, que são ortonormais no espaço de funções quadrado-integráveis no elipsoide, e até mesmo **completos** nesse espaço.
+
+Problemas de instabilidade numérica relacionados aos harmônicos elipsoidais são discutidos e são fornecidas fórmulas aproximadas computáveis eficazes.
+
+Na Seção 3.7, estabelecemos formalmente o problema da determinação de $T$ a partir de $\delta g$, na forma de um problema de contorno, ou seja, o **problema de Molodensky**, discutindo também outros problemas de contorno que podem se tornar ainda mais importantes no futuro.
+
+
