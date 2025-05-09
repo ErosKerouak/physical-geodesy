@@ -151,3 +151,68 @@ def geotiff_to_dataarray(geotiff_path):
         da = da.isel(y=slice(None, None, -1))
 
     return da
+
+
+def associated_legendre_polynomial(n, m, t):
+    """
+    Calcula o polinômio de Legendre associado P_nm(t).
+
+    Parâmetros:
+        n (int): Grau do polinômio de Legendre.
+        m (int): Ordem do polinômio de Legendre (0 <= m <= n).
+        t (float): cos(theta).
+
+    Retorno:
+        float: Valor do polinômio de Legendre associado P_nm(t).
+    """
+    
+    # Verifica se os tipos e valores de entrada são válidos
+    if not isinstance(n, int) or not isinstance(m, int):
+        raise TypeError("n e m devem ser inteiros.")
+    if m < 0 or m > n:
+        raise ValueError("A ordem m deve satisfazer 0 <= m <= n.")
+    
+    # Índice máximo da soma com base na fórmula
+    r = (n - m) // 2
+
+    # Acumula os termos da soma
+    total = 0.0
+    for k in range(r + 1):
+        numerator = (-1)**k * (t**(n - m - 2*k)) * math.factorial(2*n - 2*k)
+        denominator = math.factorial(k) * math.factorial(n - k) * math.factorial(n - m - 2*k)
+        total += numerator / denominator
+
+    # Fator multiplicador fora da soma
+    multiplier = (2**-n) * ((1 - t**2)**(m / 2))
+
+    return multiplier * total
+
+
+def legendre_polynomial(n, t):
+    """
+    Calcula o polinômio de Legendre P_n(t) usando a relação de recorrência:
+    P_n(t) = -((n - 1)/n) * P_{n-2}(t) + ((2n - 1)/n) * t * P_{n-1}(t)
+    
+    Parâmetros:
+        n (int): Grau do polinômio de Legendre.
+        t (float ou np.array): Valor em que o polinômio será avaliado.
+    
+    Retorno:
+        float ou np.array: Valor do polinômio de Legendre P_n(t) avaliado em t.
+    """
+    # Casos base: P_0(t) = 1 e P_1(t) = t
+    if n == 0:
+        return 1
+    if n == 1:
+        return t
+
+    # Inicializa P_0 e P_1
+    P_prev_prev = 1   # P_0
+    P_prev = t        # P_1
+
+    # Calcula P_k para k = 2, 3, ..., n usando a relação de recorrência
+    for k in range(2, n + 1):
+        P_current = -((k - 1) / k) * P_prev_prev + ((2 * k - 1) / k) * t * P_prev
+        P_prev_prev, P_prev = P_prev, P_current
+
+    return P_prev
